@@ -47,10 +47,11 @@
             // lblNumPacientes
             // 
             this.lblNumPacientes.AutoSize = true;
-            this.lblNumPacientes.Location = new System.Drawing.Point(31, 53);
+            this.lblNumPacientes.Font = new System.Drawing.Font("Franklin Gothic Book", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumPacientes.Location = new System.Drawing.Point(14, 51);
             this.lblNumPacientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumPacientes.Name = "lblNumPacientes";
-            this.lblNumPacientes.Size = new System.Drawing.Size(49, 17);
+            this.lblNumPacientes.Size = new System.Drawing.Size(72, 25);
             this.lblNumPacientes.TabIndex = 1;
             this.lblNumPacientes.Text = "label2";
             // 
@@ -64,7 +65,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucDiaCalendarioMensual";
             this.Size = new System.Drawing.Size(100, 88);
-            this.Load += new System.EventHandler(this.ucDiaCalendarioMensual_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

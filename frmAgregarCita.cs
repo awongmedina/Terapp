@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Terapp.UI
@@ -35,9 +28,9 @@ namespace Terapp.UI
 
         }
 
-        private DateTime FormatearHora() 
+        private DateTime FormatearHora()
         {
-            int hora = Convert.ToInt16(cboHora.SelectedItem.ToString()); 
+            int hora = Convert.ToInt16(cboHora.SelectedItem.ToString());
             int minutos = Convert.ToInt16(cboMinutos.SelectedItem.ToString());
             string AMPM = cboAMPM.SelectedItem.ToString();
 

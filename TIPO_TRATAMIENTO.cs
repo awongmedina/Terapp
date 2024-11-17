@@ -6,20 +6,18 @@ namespace Terapp.UI
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("TRATAMIENTO")]
-    public partial class TRATAMIENTO
+    public partial class TIPO_TRATAMIENTO
     {
         public int ID { get; set; }
-
-        public int ConsultaID { get; set; }
-
-        public int Tiempo { get; set; }
 
         [Required]
         [StringLength(500)]
         public string TipoTratamiento { get; set; }
 
         [StringLength(500)]
-        public string Comentarios { get; set; }
+        public string Descripcion { get; set; }
+
+        [Column(TypeName = "numeric")]
+        public decimal Activo { get; set; }
     }
 }

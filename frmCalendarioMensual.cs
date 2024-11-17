@@ -1,22 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Terapp.UI
 {
     public partial class frmCalendarioMensual : Form
     {
-        
+
         DateTime hoy = DateTime.Now;
         int _mes = DateTime.Now.Month;
         int _year = DateTime.Now.Year;
+        int _dia = DateTime.Now.Day;
+        public IQueryable<CONSULTA> consultas;
         public frmCalendarioMensual()
         {
             InitializeComponent();
@@ -34,9 +33,9 @@ namespace Terapp.UI
             mostrarDias(hoy.Month, hoy.Year);
         }
 
-        private void mostrarDias(int mes, int yr)            
+        private void mostrarDias(int mes, int yr)
         {
-            flwCalendario.Controls.Clear();            
+            flwCalendario.Controls.Clear();
 
             DateTime inicioMes = new DateTime(yr, mes, 1);
 
@@ -47,34 +46,46 @@ namespace Terapp.UI
             lblMes.Text = DateTimeFormatInfo.CurrentInfo.GetMonthName(_mes).ToUpper();
             lblYear.Text = _year.ToString();
 
-            for (int i = 1; i <= diaSemana; i++) 
+            for (int i = 1; i <= diaSemana; i++)
             {
                 ucCalVacio ucCalVacio = new ucCalVacio();
                 flwCalendario.Controls.Add(ucCalVacio);
             }
 
             for (int i = 1; i <= dias; i++)
-            {
-                ucDiaCalendarioMensual ucCalendario = new ucDiaCalendarioMensual();
-                ucCalendario.Dias(i);
-                flwCalendario.Controls.Add(ucCalendario);
+            {      
 
-                ucCalendario.Click += new System.EventHandler(this.ucCalendario_Click);
-                ucCalendario.MouseEnter += new System.EventHandler(this.ucCalendario_MouseEnter);
-                ucCalendario.MouseLeave += new System.EventHandler(this.ucCalendario_MouseLeave);
+                using (TerapiModel db = new TerapiModel()) 
+                {
+                    DateTime d = new DateTime(yr, mes, i);
+
+                    IQueryable<CONSULTA> _consultas = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
+
+                    ucDiaCalendarioMensual ucCalendario = new ucDiaCalendarioMensual();
+                    ucCalendario.Dias(i);
+                    ucCalendario.CantidadPacientes(_consultas.Count());
+                    flwCalendario.Controls.Add(ucCalendario);
+
+                    ucCalendario.Click += new System.EventHandler(this.ucCalendario_Click);
+                    ucCalendario.MouseEnter += new System.EventHandler(this.ucCalendario_MouseEnter);
+                    ucCalendario.MouseLeave += new System.EventHandler(this.ucCalendario_MouseLeave);
+
+                }
+
+
             }
         }
 
         private void btnSigMes_Click(object sender, EventArgs e)
         {
             _mes++;
-            if (_mes == 13) 
+            if (_mes == 13)
             {
                 _mes = 01;
                 _year++;
             }
 
-            mostrarDias(_mes,_year);
+            mostrarDias(_mes, _year);
         }
 
         private void btnMesAnterior_Click(object sender, EventArgs e)
@@ -93,8 +104,17 @@ namespace Terapp.UI
         private void ucCalendario_Click(object sender, EventArgs e)
         {
             ucDiaCalendarioMensual obj = (ucDiaCalendarioMensual)sender;
-            frmAgenda frmAgenda = new frmAgenda();
-            frmAgenda.Show();
+            DateTime d = obj.ObtenerFecha(_mes, _year);
+            
+
+            using (TerapiModel db = new TerapiModel()) 
+            {
+                consultas = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
+
+                frmAgenda frmAgenda = new frmAgenda();
+                frmAgenda.consultas = consultas;
+                frmAgenda.Show();
+            }           
         }
 
         private void ucCalendario_MouseEnter(object sender, EventArgs e)
@@ -107,7 +127,7 @@ namespace Terapp.UI
         {
             ucDiaCalendarioMensual obj = (ucDiaCalendarioMensual)sender;
             obj.BackColor = Color.FromArgb(111, 166, 234);
-            
+
         }
     }
 }

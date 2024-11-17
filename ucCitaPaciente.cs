@@ -21,6 +21,7 @@ namespace Terapp.UI
         #region Getter y Setter
         private string _nombre;
         private string _hora;
+        private int _consulta;
 
         [Category("Custom props")]
         public string Nombre 
@@ -34,7 +35,13 @@ namespace Terapp.UI
         {
             get { return _hora; }
             set { _hora = value; lblHoraCita.Text = value; }
-        }      
+        }
+
+        public int Consulta
+        {
+            get { return _consulta; }
+            set { _consulta = value;  }
+        }
 
 
         #endregion

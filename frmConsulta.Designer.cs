@@ -32,13 +32,16 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDatosPaciente = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
+            this.btnAgendarConsulta = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.lblExpediente = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtOcupacion = new System.Windows.Forms.TextBox();
             this.txtNombrePaciente = new System.Windows.Forms.TextBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,30 +49,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabMotivoConsulta = new System.Windows.Forms.TabPage();
             this.flwFormasMotivoComnsulta = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.flwEscaladolor = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
-            this.tabValoracion = new System.Windows.Forms.TabPage();
-            this.flwFormasValoracion = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cboAfeccion = new System.Windows.Forms.ComboBox();
-            this.tabTratamiento = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnGenerarPDF = new System.Windows.Forms.Button();
-            this.btnAgendarConsulta = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
             this.motivoRed = new System.Windows.Forms.PictureBox();
             this.motivoYellow = new System.Windows.Forms.PictureBox();
             this.motivoGreen = new System.Windows.Forms.PictureBox();
             this.motivoBlack = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.flwEscaladolor = new System.Windows.Forms.FlowLayoutPanel();
             this.escala1 = new System.Windows.Forms.PictureBox();
             this.escala2 = new System.Windows.Forms.PictureBox();
             this.escala3 = new System.Windows.Forms.PictureBox();
@@ -80,28 +66,38 @@
             this.escala8 = new System.Windows.Forms.PictureBox();
             this.escala9 = new System.Windows.Forms.PictureBox();
             this.escala10 = new System.Windows.Forms.PictureBox();
+            this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
             this.canvasMotivoConsulta = new System.Windows.Forms.Panel();
+            this.tabValoracion = new System.Windows.Forms.TabPage();
+            this.flwFormasValoracion = new System.Windows.Forms.FlowLayoutPanel();
             this.valoracionRed = new System.Windows.Forms.PictureBox();
             this.valoracionYellow = new System.Windows.Forms.PictureBox();
             this.valoracionGreen = new System.Windows.Forms.PictureBox();
             this.valoracionBlack = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cboAfeccion = new System.Windows.Forms.ComboBox();
             this.canvasValoracion = new System.Windows.Forms.Panel();
+            this.tabTratamiento = new System.Windows.Forms.TabPage();
             this.btnGuardarTratamiento = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.canvasTratamiento = new System.Windows.Forms.Panel();
+            this.txtOcupacion = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabDatosPaciente.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabMotivoConsulta.SuspendLayout();
             this.flwFormasMotivoComnsulta.SuspendLayout();
-            this.flwEscaladolor.SuspendLayout();
-            this.tabValoracion.SuspendLayout();
-            this.flwFormasValoracion.SuspendLayout();
-            this.tabTratamiento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoYellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoBlack)).BeginInit();
+            this.flwEscaladolor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.escala1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala3)).BeginInit();
@@ -112,10 +108,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.escala8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala10)).BeginInit();
+            this.tabValoracion.SuspendLayout();
+            this.flwFormasValoracion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionRed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionYellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionBlack)).BeginInit();
+            this.tabTratamiento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -129,7 +129,7 @@
             this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(784, 881);
+            this.tabControl.Size = new System.Drawing.Size(784, 749);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
@@ -142,7 +142,7 @@
             this.tabDatosPaciente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabDatosPaciente.Name = "tabDatosPaciente";
             this.tabDatosPaciente.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDatosPaciente.Size = new System.Drawing.Size(776, 847);
+            this.tabDatosPaciente.Size = new System.Drawing.Size(776, 715);
             this.tabDatosPaciente.TabIndex = 0;
             this.tabDatosPaciente.Text = "DATOS GENERALES";
             // 
@@ -155,7 +155,7 @@
             this.panel1.Controls.Add(this.lblExpediente);
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.txtTelefono);
             this.panel1.Controls.Add(this.dtpFechaNacimiento);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtOcupacion);
@@ -169,6 +169,28 @@
             this.panel1.Size = new System.Drawing.Size(765, 836);
             this.panel1.TabIndex = 14;
             // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.BackgroundImage = global::Terapp.UI.Properties.Resources.pdf;
+            this.btnGenerarPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGenerarPDF.Location = new System.Drawing.Point(586, 639);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(128, 85);
+            this.btnGenerarPDF.TabIndex = 15;
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
+            // btnAgendarConsulta
+            // 
+            this.btnAgendarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.agregar_cita;
+            this.btnAgendarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgendarConsulta.Location = new System.Drawing.Point(217, 639);
+            this.btnAgendarConsulta.Name = "btnAgendarConsulta";
+            this.btnAgendarConsulta.Size = new System.Drawing.Size(128, 85);
+            this.btnAgendarConsulta.TabIndex = 14;
+            this.btnAgendarConsulta.UseVisualStyleBackColor = true;
+            this.btnAgendarConsulta.Click += new System.EventHandler(this.btnAgendarConsulta_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -178,6 +200,17 @@
             this.label5.Size = new System.Drawing.Size(389, 37);
             this.label5.TabIndex = 4;
             this.label5.Text = "NUMERO DE EXPEDIENTE";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(399, 639);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(128, 85);
+            this.btnBuscar.TabIndex = 13;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblExpediente
             // 
@@ -189,6 +222,17 @@
             this.lblExpediente.TabIndex = 11;
             this.lblExpediente.Text = "EXPEDIENTE";
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardar.Location = new System.Drawing.Point(46, 639);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(128, 85);
+            this.btnGuardar.TabIndex = 12;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -199,13 +243,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "NOMBRE";
             // 
-            // textBox4
+            // txtTelefono
             // 
-            this.textBox4.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(349, 490);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(365, 38);
-            this.textBox4.TabIndex = 8;
+            this.txtTelefono.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(349, 490);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(365, 38);
+            this.txtTelefono.TabIndex = 8;
             // 
             // dtpFechaNacimiento
             // 
@@ -225,14 +269,6 @@
             this.label4.Size = new System.Drawing.Size(145, 34);
             this.label4.TabIndex = 3;
             this.label4.Text = "TELEFONO";
-            // 
-            // txtOcupacion
-            // 
-            this.txtOcupacion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOcupacion.Location = new System.Drawing.Point(349, 386);
-            this.txtOcupacion.Name = "txtOcupacion";
-            this.txtOcupacion.Size = new System.Drawing.Size(365, 38);
-            this.txtOcupacion.TabIndex = 7;
             // 
             // txtNombrePaciente
             // 
@@ -293,7 +329,7 @@
             this.tabMotivoConsulta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabMotivoConsulta.Name = "tabMotivoConsulta";
             this.tabMotivoConsulta.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabMotivoConsulta.Size = new System.Drawing.Size(776, 847);
+            this.tabMotivoConsulta.Size = new System.Drawing.Size(776, 715);
             this.tabMotivoConsulta.TabIndex = 1;
             this.tabMotivoConsulta.Text = "MOTIVO DE CONSULTA";
             // 
@@ -307,212 +343,6 @@
             this.flwFormasMotivoComnsulta.Name = "flwFormasMotivoComnsulta";
             this.flwFormasMotivoComnsulta.Size = new System.Drawing.Size(106, 222);
             this.flwFormasMotivoComnsulta.TabIndex = 5;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(277, 269);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(153, 21);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "ESCALA DE DOLOR";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(246, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 21);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "MOTIVO DE LA CONSULTA";
-            // 
-            // flwEscaladolor
-            // 
-            this.flwEscaladolor.Controls.Add(this.escala1);
-            this.flwEscaladolor.Controls.Add(this.escala2);
-            this.flwEscaladolor.Controls.Add(this.escala3);
-            this.flwEscaladolor.Controls.Add(this.escala4);
-            this.flwEscaladolor.Controls.Add(this.escala5);
-            this.flwEscaladolor.Controls.Add(this.escala6);
-            this.flwEscaladolor.Controls.Add(this.escala7);
-            this.flwEscaladolor.Controls.Add(this.escala8);
-            this.flwEscaladolor.Controls.Add(this.escala9);
-            this.flwEscaladolor.Controls.Add(this.escala10);
-            this.flwEscaladolor.Location = new System.Drawing.Point(39, 293);
-            this.flwEscaladolor.Name = "flwEscaladolor";
-            this.flwEscaladolor.Size = new System.Drawing.Size(679, 55);
-            this.flwEscaladolor.TabIndex = 1;
-            // 
-            // txtMotivoConsulta
-            // 
-            this.txtMotivoConsulta.Location = new System.Drawing.Point(39, 44);
-            this.txtMotivoConsulta.Multiline = true;
-            this.txtMotivoConsulta.Name = "txtMotivoConsulta";
-            this.txtMotivoConsulta.Size = new System.Drawing.Size(679, 199);
-            this.txtMotivoConsulta.TabIndex = 0;
-            // 
-            // tabValoracion
-            // 
-            this.tabValoracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.tabValoracion.Controls.Add(this.flwFormasValoracion);
-            this.tabValoracion.Controls.Add(this.label10);
-            this.tabValoracion.Controls.Add(this.cboAfeccion);
-            this.tabValoracion.Controls.Add(this.canvasValoracion);
-            this.tabValoracion.Location = new System.Drawing.Point(4, 30);
-            this.tabValoracion.Name = "tabValoracion";
-            this.tabValoracion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabValoracion.Size = new System.Drawing.Size(776, 847);
-            this.tabValoracion.TabIndex = 2;
-            this.tabValoracion.Text = "VALORACION";
-            // 
-            // flwFormasValoracion
-            // 
-            this.flwFormasValoracion.Controls.Add(this.valoracionRed);
-            this.flwFormasValoracion.Controls.Add(this.valoracionYellow);
-            this.flwFormasValoracion.Controls.Add(this.valoracionGreen);
-            this.flwFormasValoracion.Controls.Add(this.valoracionBlack);
-            this.flwFormasValoracion.Location = new System.Drawing.Point(653, 222);
-            this.flwFormasValoracion.Name = "flwFormasValoracion";
-            this.flwFormasValoracion.Size = new System.Drawing.Size(96, 225);
-            this.flwFormasValoracion.TabIndex = 3;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(293, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(109, 21);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "VALORACION";
-            // 
-            // cboAfeccion
-            // 
-            this.cboAfeccion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAfeccion.FormattingEnabled = true;
-            this.cboAfeccion.Location = new System.Drawing.Point(28, 65);
-            this.cboAfeccion.Name = "cboAfeccion";
-            this.cboAfeccion.Size = new System.Drawing.Size(681, 42);
-            this.cboAfeccion.TabIndex = 0;
-            // 
-            // tabTratamiento
-            // 
-            this.tabTratamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.tabTratamiento.Controls.Add(this.btnGuardarTratamiento);
-            this.tabTratamiento.Controls.Add(this.dataGridView1);
-            this.tabTratamiento.Controls.Add(this.textBox7);
-            this.tabTratamiento.Controls.Add(this.label13);
-            this.tabTratamiento.Controls.Add(this.textBox6);
-            this.tabTratamiento.Controls.Add(this.label12);
-            this.tabTratamiento.Controls.Add(this.textBox5);
-            this.tabTratamiento.Controls.Add(this.label11);
-            this.tabTratamiento.Controls.Add(this.canvasTratamiento);
-            this.tabTratamiento.Location = new System.Drawing.Point(4, 30);
-            this.tabTratamiento.Name = "tabTratamiento";
-            this.tabTratamiento.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTratamiento.Size = new System.Drawing.Size(776, 847);
-            this.tabTratamiento.TabIndex = 3;
-            this.tabTratamiento.Text = "TRATAMIENTO";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 549);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(759, 290);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(612, 269);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(144, 144);
-            this.textBox7.TabIndex = 6;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(623, 236);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 21);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "COMENTARIOS";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(612, 181);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(144, 26);
-            this.textBox6.TabIndex = 4;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(623, 148);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 21);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "TRATAMIENTO";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(612, 86);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(144, 26);
-            this.textBox5.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(641, 52);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 21);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "TIEMPO";
-            // 
-            // btnGenerarPDF
-            // 
-            this.btnGenerarPDF.BackgroundImage = global::Terapp.UI.Properties.Resources.pdf;
-            this.btnGenerarPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGenerarPDF.Location = new System.Drawing.Point(586, 639);
-            this.btnGenerarPDF.Name = "btnGenerarPDF";
-            this.btnGenerarPDF.Size = new System.Drawing.Size(128, 85);
-            this.btnGenerarPDF.TabIndex = 15;
-            this.btnGenerarPDF.UseVisualStyleBackColor = true;
-            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
-            // 
-            // btnAgendarConsulta
-            // 
-            this.btnAgendarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.agregar_cita;
-            this.btnAgendarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgendarConsulta.Location = new System.Drawing.Point(217, 639);
-            this.btnAgendarConsulta.Name = "btnAgendarConsulta";
-            this.btnAgendarConsulta.Size = new System.Drawing.Size(128, 85);
-            this.btnAgendarConsulta.TabIndex = 14;
-            this.btnAgendarConsulta.UseVisualStyleBackColor = true;
-            this.btnAgendarConsulta.Click += new System.EventHandler(this.btnAgendarConsulta_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(399, 639);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(128, 85);
-            this.btnBuscar.TabIndex = 13;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardar.Location = new System.Drawing.Point(46, 639);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(128, 85);
-            this.btnGuardar.TabIndex = 12;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // motivoRed
             // 
@@ -553,6 +383,41 @@
             this.motivoBlack.TabIndex = 3;
             this.motivoBlack.TabStop = false;
             this.motivoBlack.Click += new System.EventHandler(this.motivoRed_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(277, 269);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(153, 21);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "ESCALA DE DOLOR";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(246, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(207, 21);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "MOTIVO DE LA CONSULTA";
+            // 
+            // flwEscaladolor
+            // 
+            this.flwEscaladolor.Controls.Add(this.escala1);
+            this.flwEscaladolor.Controls.Add(this.escala2);
+            this.flwEscaladolor.Controls.Add(this.escala3);
+            this.flwEscaladolor.Controls.Add(this.escala4);
+            this.flwEscaladolor.Controls.Add(this.escala5);
+            this.flwEscaladolor.Controls.Add(this.escala6);
+            this.flwEscaladolor.Controls.Add(this.escala7);
+            this.flwEscaladolor.Controls.Add(this.escala8);
+            this.flwEscaladolor.Controls.Add(this.escala9);
+            this.flwEscaladolor.Controls.Add(this.escala10);
+            this.flwEscaladolor.Location = new System.Drawing.Point(39, 293);
+            this.flwEscaladolor.Name = "flwEscaladolor";
+            this.flwEscaladolor.Size = new System.Drawing.Size(679, 55);
+            this.flwEscaladolor.TabIndex = 1;
             // 
             // escala1
             // 
@@ -654,6 +519,15 @@
             this.escala10.TabStop = false;
             this.escala10.Click += new System.EventHandler(this.escala1_Click);
             // 
+            // txtMotivoConsulta
+            // 
+            this.txtMotivoConsulta.Location = new System.Drawing.Point(39, 44);
+            this.txtMotivoConsulta.Multiline = true;
+            this.txtMotivoConsulta.Name = "txtMotivoConsulta";
+            this.txtMotivoConsulta.Size = new System.Drawing.Size(679, 199);
+            this.txtMotivoConsulta.TabIndex = 0;
+            this.txtMotivoConsulta.TextChanged += new System.EventHandler(this.txtMotivoConsulta_TextChanged);
+            // 
             // canvasMotivoConsulta
             // 
             this.canvasMotivoConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.cuerpo_humano;
@@ -665,6 +539,31 @@
             this.canvasMotivoConsulta.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvasMotivoConsulta_MouseDown);
             this.canvasMotivoConsulta.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasMotivoConsulta_MouseMove);
             this.canvasMotivoConsulta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasMotivoConsulta_MouseUp);
+            // 
+            // tabValoracion
+            // 
+            this.tabValoracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabValoracion.Controls.Add(this.flwFormasValoracion);
+            this.tabValoracion.Controls.Add(this.label10);
+            this.tabValoracion.Controls.Add(this.cboAfeccion);
+            this.tabValoracion.Controls.Add(this.canvasValoracion);
+            this.tabValoracion.Location = new System.Drawing.Point(4, 30);
+            this.tabValoracion.Name = "tabValoracion";
+            this.tabValoracion.Padding = new System.Windows.Forms.Padding(3);
+            this.tabValoracion.Size = new System.Drawing.Size(776, 715);
+            this.tabValoracion.TabIndex = 2;
+            this.tabValoracion.Text = "VALORACION";
+            // 
+            // flwFormasValoracion
+            // 
+            this.flwFormasValoracion.Controls.Add(this.valoracionRed);
+            this.flwFormasValoracion.Controls.Add(this.valoracionYellow);
+            this.flwFormasValoracion.Controls.Add(this.valoracionGreen);
+            this.flwFormasValoracion.Controls.Add(this.valoracionBlack);
+            this.flwFormasValoracion.Location = new System.Drawing.Point(653, 222);
+            this.flwFormasValoracion.Name = "flwFormasValoracion";
+            this.flwFormasValoracion.Size = new System.Drawing.Size(96, 225);
+            this.flwFormasValoracion.TabIndex = 3;
             // 
             // valoracionRed
             // 
@@ -706,6 +605,24 @@
             this.valoracionBlack.TabStop = false;
             this.valoracionBlack.Click += new System.EventHandler(this.valoracionRed_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(293, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(109, 21);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "VALORACION";
+            // 
+            // cboAfeccion
+            // 
+            this.cboAfeccion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboAfeccion.FormattingEnabled = true;
+            this.cboAfeccion.Location = new System.Drawing.Point(28, 65);
+            this.cboAfeccion.Name = "cboAfeccion";
+            this.cboAfeccion.Size = new System.Drawing.Size(681, 42);
+            this.cboAfeccion.TabIndex = 0;
+            // 
             // canvasValoracion
             // 
             this.canvasValoracion.BackgroundImage = global::Terapp.UI.Properties.Resources.cuerpo_humano;
@@ -718,6 +635,25 @@
             this.canvasValoracion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasValoracion_MouseMove);
             this.canvasValoracion.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasValoracion_MouseUp);
             // 
+            // tabTratamiento
+            // 
+            this.tabTratamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabTratamiento.Controls.Add(this.btnGuardarTratamiento);
+            this.tabTratamiento.Controls.Add(this.dataGridView1);
+            this.tabTratamiento.Controls.Add(this.textBox7);
+            this.tabTratamiento.Controls.Add(this.label13);
+            this.tabTratamiento.Controls.Add(this.textBox6);
+            this.tabTratamiento.Controls.Add(this.label12);
+            this.tabTratamiento.Controls.Add(this.textBox5);
+            this.tabTratamiento.Controls.Add(this.label11);
+            this.tabTratamiento.Controls.Add(this.canvasTratamiento);
+            this.tabTratamiento.Location = new System.Drawing.Point(4, 30);
+            this.tabTratamiento.Name = "tabTratamiento";
+            this.tabTratamiento.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTratamiento.Size = new System.Drawing.Size(776, 715);
+            this.tabTratamiento.TabIndex = 3;
+            this.tabTratamiento.Text = "TRATAMIENTO";
+            // 
             // btnGuardarTratamiento
             // 
             this.btnGuardarTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.anadir;
@@ -727,6 +663,63 @@
             this.btnGuardarTratamiento.Size = new System.Drawing.Size(99, 68);
             this.btnGuardarTratamiento.TabIndex = 8;
             this.btnGuardarTratamiento.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(9, 549);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(759, 290);
+            this.dataGridView1.TabIndex = 7;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(612, 269);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(144, 144);
+            this.textBox7.TabIndex = 6;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(623, 236);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 21);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "COMENTARIOS";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(612, 181);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(144, 26);
+            this.textBox6.TabIndex = 4;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(623, 148);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 21);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "TRATAMIENTO";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(612, 86);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(144, 26);
+            this.textBox5.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(641, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 21);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "TIEMPO";
             // 
             // canvasTratamiento
             // 
@@ -740,12 +733,20 @@
             this.canvasTratamiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseMove);
             this.canvasTratamiento.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseUp);
             // 
+            // txtOcupacion
+            // 
+            this.txtOcupacion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOcupacion.Location = new System.Drawing.Point(349, 386);
+            this.txtOcupacion.Name = "txtOcupacion";
+            this.txtOcupacion.Size = new System.Drawing.Size(365, 38);
+            this.txtOcupacion.TabIndex = 7;
+            // 
             // frmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(784, 881);
+            this.ClientSize = new System.Drawing.Size(784, 749);
             this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -762,17 +763,11 @@
             this.tabMotivoConsulta.ResumeLayout(false);
             this.tabMotivoConsulta.PerformLayout();
             this.flwFormasMotivoComnsulta.ResumeLayout(false);
-            this.flwEscaladolor.ResumeLayout(false);
-            this.tabValoracion.ResumeLayout(false);
-            this.tabValoracion.PerformLayout();
-            this.flwFormasValoracion.ResumeLayout(false);
-            this.tabTratamiento.ResumeLayout(false);
-            this.tabTratamiento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoYellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.motivoBlack)).EndInit();
+            this.flwEscaladolor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.escala1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala3)).EndInit();
@@ -783,10 +778,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.escala8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala10)).EndInit();
+            this.tabValoracion.ResumeLayout(false);
+            this.tabValoracion.PerformLayout();
+            this.flwFormasValoracion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.valoracionRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionYellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.valoracionBlack)).EndInit();
+            this.tabTratamiento.ResumeLayout(false);
+            this.tabTratamiento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -800,8 +801,7 @@
         private System.Windows.Forms.TabPage tabTratamiento;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox txtOcupacion;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.TextBox txtNombrePaciente;
         private System.Windows.Forms.Label label5;
@@ -852,5 +852,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAgendarConsulta;
         private System.Windows.Forms.Button btnGenerarPDF;
+        private System.Windows.Forms.TextBox txtOcupacion;
     }
 }

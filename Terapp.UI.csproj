@@ -79,16 +79,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONFIGURACION.cs" />
+    <Compile Include="CONSULTA.cs" />
     <Compile Include="frmRecibo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRecibo.Designer.cs">
       <DependentUpon>frmRecibo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Puntos.cs" />
-    <Compile Include="TerapiModel.cs" />
-    <Compile Include="Tratamiento.cs" />
-    <Compile Include="Consulta.cs" />
     <Compile Include="frmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,8 +135,14 @@
     <Compile Include="frmConfiguracion.Designer.cs">
       <DependentUpon>frmConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="PACIENTE.cs" />
+    <Compile Include="PADECIMIENTO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PUNTO.cs" />
+    <Compile Include="TerapiModel.cs" />
+    <Compile Include="TIPO_TRATAMIENTO.cs" />
+    <Compile Include="TRATAMIENTO.cs" />
     <Compile Include="ucCalVacio.cs">
       <SubType>UserControl</SubType>
     </Compile>

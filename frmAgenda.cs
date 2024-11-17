@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Terapp.UI
@@ -13,22 +9,15 @@ namespace Terapp.UI
     public partial class frmAgenda : Form
     {
         private frmMain _frmMain;
-        //private Paciente paciente;
+        public PACIENTE paciente;
+        public CONSULTA consulta;
+        public IQueryable<CONSULTA> consultas;
         public frmAgenda()
         {
             InitializeComponent();
             timer1.Start();
         }
 
-        /*
-        public frmAgenda(string clientes)
-        {
-            InitializeComponent();
-            this.pacientes = clientes;
-            timer1.Start();
-        }
-
-        */
 
         public frmAgenda(frmMain frm)
         {
@@ -38,44 +27,79 @@ namespace Terapp.UI
         }
         #region Generar los controles para las citas del dia
 
-        private void GenerarCitasPaciente()            
+        private void GenerarCitasPaciente()
         {
             flwCitas.Controls.Clear();
-            /*
-            if ()
+
+            using (TerapiModel db = new TerapiModel())
             {
+                IQueryable<CONSULTA> consultas = db.CONSULTAS.Where(x => x.FechaConsulta.Year == DateTime.Today.Year
+                        && x.FechaConsulta.Month == DateTime.Today.Month
+                        && x.FechaConsulta.Day == DateTime.Today.Day);
+                consultas.OrderByDescending(b => b.FechaConsulta.Hour);
 
-            } else 
-            {
+                foreach (var consulta in consultas)
+                {
+                    PACIENTE paciente = new PACIENTE();
 
-            }
-            */
-            string[] nombre = new string[5] { "Pedro Paramo", "Jose Perez", "Juanita Rodriguez", "Pancho Lopez", "Alexis Wong" };
-            string[] hora = new string[5] { "Pedro Paramo", "Jose Perez", "Juanita Rodriguez", "Pancho Lopez", "Alexis Wong" };
+                    paciente = db.PACIENTES.Where(b => b.ID == consulta.PacienteID).FirstOrDefault();
 
-            ucCitaPaciente[] citas = new ucCitaPaciente[5];
+                    ucCitaPaciente cita = new ucCitaPaciente();
+                    cita.Nombre = paciente.Nombre;
+                    cita.Consulta = consulta.ID;
+                    cita.Hora = consulta.FechaConsulta.Date.ToShortDateString() + " " + consulta.FechaConsulta.TimeOfDay.ToString();
+                    flwCitas.Controls.Add(cita);
 
-            for (int i = 0; i < citas.Length; i++)
-            {
-                citas[i] = new ucCitaPaciente();
-                citas[i].Nombre = nombre[i];
-                citas[i].Hora = hora[i];
-                flwCitas.Controls.Add(citas[i]);
 
-                citas[i].Click += new System.EventHandler(this.ucCitaPaciente_Click);
-                citas[i].MouseEnter += new System.EventHandler(this.ucCitaPaciente_MouseEnter);
-                citas[i].MouseLeave += new System.EventHandler(this.ucCitaPaciente_MouseLeave);
 
-                //citas[i].Controls.
+                    cita.Click += new System.EventHandler(this.ucCitaPaciente_Click);
+                    cita.MouseEnter += new System.EventHandler(this.ucCitaPaciente_MouseEnter);
+                    cita.MouseLeave += new System.EventHandler(this.ucCitaPaciente_MouseLeave);
+
+                }
             }
 
         }
 
-        private void ucCitaPaciente_Click(object sender, EventArgs e) 
+        private void GenerarCitasPaciente(IQueryable<CONSULTA> consultas)
         {
-            ucCitaPaciente obj = (ucCitaPaciente)sender;
-            frmConsulta frmConsulta = new frmConsulta(this, obj.Nombre);
-            frmConsulta.Show();
+            flwCitas.Controls.Clear();
+
+            using (TerapiModel db = new TerapiModel())
+            {
+                foreach (var consulta in consultas)
+                {
+                    PACIENTE paciente = new PACIENTE();
+
+                    paciente = db.PACIENTES.Where(b => b.ID == consulta.PacienteID).FirstOrDefault();
+
+                    ucCitaPaciente cita = new ucCitaPaciente();
+                    cita.Nombre = paciente.Nombre;
+                    cita.Consulta = consulta.ID;
+                    cita.Hora = consulta.FechaConsulta.Date.ToShortDateString() + " " + consulta.FechaConsulta.TimeOfDay.ToString();
+                    flwCitas.Controls.Add(cita);
+
+                    cita.Click += new System.EventHandler(this.ucCitaPaciente_Click);
+                    cita.MouseEnter += new System.EventHandler(this.ucCitaPaciente_MouseEnter);
+                    cita.MouseLeave += new System.EventHandler(this.ucCitaPaciente_MouseLeave);
+                }
+            }
+        }
+
+        
+
+        private void ucCitaPaciente_Click(object sender, EventArgs e)
+        {
+            using (TerapiModel db = new TerapiModel())
+            {
+                ucCitaPaciente obj = (ucCitaPaciente)sender;
+                paciente = db.PACIENTES.FirstOrDefault(x => x.Nombre == obj.Nombre);
+                consulta = db.CONSULTAS.FirstOrDefault(x => x.ID == obj.Consulta);
+
+                frmConsulta frmConsulta = new frmConsulta(this);
+                frmConsulta.Show();
+            }
+
         }
 
         private void ucCitaPaciente_MouseEnter(object sender, EventArgs e)
@@ -86,7 +110,7 @@ namespace Terapp.UI
 
         private void ucCitaPaciente_MouseLeave(object sender, EventArgs e)
         {
-            ucCitaPaciente obj = (ucCitaPaciente)sender;    
+            ucCitaPaciente obj = (ucCitaPaciente)sender;
             obj.BackColor = SystemColors.Control;
         }
 
@@ -94,7 +118,15 @@ namespace Terapp.UI
 
         private void frmAgenda_Load(object sender, EventArgs e)
         {
-            GenerarCitasPaciente();
+            if (consultas != null)
+            {
+                GenerarCitasPaciente(consultas);
+            }
+            else 
+            { 
+                GenerarCitasPaciente(); 
+            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

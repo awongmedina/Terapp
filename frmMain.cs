@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Terapp.UI
@@ -38,8 +31,8 @@ namespace Terapp.UI
 
         private void btnRegistroPaciente_Click(object sender, EventArgs e)
         {
-           frmConsulta frmRegistro = new frmConsulta();
-           frmRegistro.Show();
+            frmConsulta frmRegistro = new frmConsulta();
+            frmRegistro.Show();
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
