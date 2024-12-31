@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Terapp.UI
@@ -33,6 +35,7 @@ namespace Terapp.UI
 
             using (TerapiModel db = new TerapiModel())
             {
+              
                 IQueryable<CONSULTA> consultas = db.CONSULTAS.Where(x => x.FechaConsulta.Year == DateTime.Today.Year
                         && x.FechaConsulta.Month == DateTime.Today.Month
                         && x.FechaConsulta.Day == DateTime.Today.Day);
@@ -67,6 +70,7 @@ namespace Terapp.UI
 
             using (TerapiModel db = new TerapiModel())
             {
+               
                 foreach (var consulta in consultas)
                 {
                     PACIENTE paciente = new PACIENTE();
@@ -92,6 +96,7 @@ namespace Terapp.UI
         {
             using (TerapiModel db = new TerapiModel())
             {
+                
                 ucCitaPaciente obj = (ucCitaPaciente)sender;
                 paciente = db.PACIENTES.FirstOrDefault(x => x.Nombre == obj.Nombre);
                 consulta = db.CONSULTAS.FirstOrDefault(x => x.ID == obj.Consulta);

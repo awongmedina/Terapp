@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Terapp.UI
 {
     public partial class frmExpClinico : Form
     {
+        private CONSULTA consulta;
+        private List<CONSULTA> consultas;
         public frmExpClinico()
         {
             InitializeComponent();
@@ -17,5 +21,48 @@ namespace Terapp.UI
             lblHora.Text = DateTime.Now.ToShortTimeString();
         }
 
+        private void btnBuscarExpediente_Click(object sender, EventArgs e)
+        {
+
+            if (txtNombre.Text == "" || txtNombre.Text == null) 
+            {
+                lblError.Text = "NO HAS INGRESADO UN NOMBRE";
+                return;
+            }
+                
+
+            using (TerapiModel db = new TerapiModel()) 
+            {
+                PACIENTE _paciente = db.PACIENTES.FirstOrDefault(x => x.Nombre == txtNombre.Text);
+
+                if (_paciente == null)
+                {
+                    lblError.Text = "EL PACIENTE NO ESTA REGISTRADO";
+                }
+                else 
+                {
+                    lblError.Text = "";
+
+                    IQueryable<CONSULTA> _consultas = db.CONSULTAS.Where(x => x.PacienteID == _paciente.ID);
+                    consultas = _consultas.ToList();
+
+                    LlenarDGVConsultas();
+                }
+
+            }
+
+
+        }
+
+        private void LlenarDGVConsultas()
+        {
+            dgvConsultas.DataSource = null;
+            dgvConsultas.DataSource = consultas;
+
+            dgvConsultas.Columns["ID"].Visible = false;
+            dgvConsultas.Columns["PacienteID"].Visible = false;
+
+
+        }
     }
 }

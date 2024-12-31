@@ -51,17 +51,17 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabCalendario = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tabCalendario = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabTratamientos.SuspendLayout();
             this.tabAfecciones.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabCalendario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -271,6 +271,36 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "AGERGAR TIPO DE TRATAMIENTO";
             // 
+            // tabCalendario
+            // 
+            this.tabCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabCalendario.Controls.Add(this.textBox1);
+            this.tabCalendario.Controls.Add(this.label8);
+            this.tabCalendario.Location = new System.Drawing.Point(4, 30);
+            this.tabCalendario.Name = "tabCalendario";
+            this.tabCalendario.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCalendario.Size = new System.Drawing.Size(751, 595);
+            this.tabCalendario.TabIndex = 2;
+            this.tabCalendario.Text = "CALENDARIO";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(329, 155);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(186, 32);
+            this.textBox1.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Franklin Gothic Book", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(19, 34);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(714, 34);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "CONFIGURAR NUMERO DE PACIENTES A LA MISMA HORA";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -291,42 +321,12 @@
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // tabCalendario
-            // 
-            this.tabCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.tabCalendario.Controls.Add(this.textBox1);
-            this.tabCalendario.Controls.Add(this.label8);
-            this.tabCalendario.Location = new System.Drawing.Point(4, 30);
-            this.tabCalendario.Name = "tabCalendario";
-            this.tabCalendario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCalendario.Size = new System.Drawing.Size(751, 595);
-            this.tabCalendario.TabIndex = 2;
-            this.tabCalendario.Text = "CALENDARIO";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Franklin Gothic Book", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(714, 34);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "CONFIGURAR NUMERO DE PACIENTES A LA MISMA HORA";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(329, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 32);
-            this.textBox1.TabIndex = 2;
-            // 
             // frmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(784, 749);
+            this.ClientSize = new System.Drawing.Size(784, 869);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabTratamientos);
             this.Controls.Add(this.pictureBox2);
@@ -345,9 +345,9 @@
             this.tabAfecciones.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabCalendario.ResumeLayout(false);
             this.tabCalendario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

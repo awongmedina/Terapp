@@ -3,7 +3,9 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Terapp.UI
@@ -57,6 +59,7 @@ namespace Terapp.UI
 
                 using (TerapiModel db = new TerapiModel()) 
                 {
+                   
                     DateTime d = new DateTime(yr, mes, i);
 
                     IQueryable<CONSULTA> _consultas = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
@@ -109,6 +112,7 @@ namespace Terapp.UI
 
             using (TerapiModel db = new TerapiModel()) 
             {
+               
                 consultas = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
 
                 frmAgenda frmAgenda = new frmAgenda();

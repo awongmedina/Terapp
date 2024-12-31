@@ -8,7 +8,7 @@
     <ProjectGuid>{E26E59F9-93E5-4AC2-8E59-19EEF22E4911}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Terapp.UI</RootNamespace>
-    <AssemblyName>Terapp.UI</AssemblyName>
+    <AssemblyName>Terapp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,6 +50,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Terapi.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
@@ -104,12 +108,6 @@
     </Compile>
     <Compile Include="frmCalendarioMensual.Designer.cs">
       <DependentUpon>frmCalendarioMensual.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCitasPorDia.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCitasPorDia.Designer.cs">
-      <DependentUpon>frmCitasPorDia.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsulta.cs">
       <SubType>Form</SubType>
@@ -169,9 +167,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalendarioMensual.resx">
       <DependentUpon>frmCalendarioMensual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCitasPorDia.resx">
-      <DependentUpon>frmCitasPorDia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta.resx">
       <DependentUpon>frmConsulta.cs</DependentUpon>
@@ -274,8 +269,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Terapi.ico" />
     <Content Include="TerapiLocalDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

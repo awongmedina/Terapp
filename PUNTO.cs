@@ -18,12 +18,8 @@ namespace Terapp.UI
         public string TipoPuntos { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string PuntoX { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string PuntoY { get; set; }
+        [StringLength(50000)]
+        public string Coordenadas { get; set; }
 
         [Required]
         [StringLength(50)]
