@@ -144,18 +144,21 @@ namespace Terapp.UI
         {
             frmConsulta consulta = new frmConsulta();
             consulta.Show();
+            this.Close();
         }
 
         private void btnAgendaMensual_Click(object sender, EventArgs e)
         {
             frmCalendarioMensual frmCalendarioMensual = new frmCalendarioMensual();
             frmCalendarioMensual.Show();
+            this.Close();
         }
 
         private void btnAgregarCita_Click(object sender, EventArgs e)
         {
             frmAgregarCita frm = new frmAgregarCita();
             frm.Show();
+
         }
     }
 }

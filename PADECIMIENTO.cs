@@ -14,7 +14,7 @@ namespace Terapp.UI
         [Column("Padecimiento")]
         [Required]
         [StringLength(500)]
-        public string Padecimiento1 { get; set; }
+        public string NombrePadecimiento { get; set; }
 
         [StringLength(500)]
         public string Descripcion { get; set; }

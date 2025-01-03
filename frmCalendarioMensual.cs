@@ -118,6 +118,7 @@ namespace Terapp.UI
                 frmAgenda frmAgenda = new frmAgenda();
                 frmAgenda.consultas = consultas;
                 frmAgenda.Show();
+                this.Close();
             }           
         }
 

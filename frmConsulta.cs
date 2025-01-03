@@ -19,7 +19,9 @@ namespace Terapp.UI
         private CONSULTA _consulta;
         private PACIENTE _paciente;
         private List<PADECIMIENTO> padecimientos = new List<PADECIMIENTO>();
-        private List<TIPO_TRATAMIENTO> tratamientos = new List<TIPO_TRATAMIENTO>();        
+        private List<TIPO_TRATAMIENTO> tipo_tratamientos = new List<TIPO_TRATAMIENTO>();
+        private List<TRATAMIENTO> tratamientos = new List<TRATAMIENTO>();
+        private List<TRATAMIENTOS_AGREGADOS> tratamientos_agregados = new List<TRATAMIENTOS_AGREGADOS>();
 
 
 
@@ -67,6 +69,76 @@ namespace Terapp.UI
             LlenarCombos();
         }
 
+        public frmConsulta(PACIENTE p, CONSULTA c)
+        {
+            InitializeComponent();
+
+            InicializarCanvas();
+
+            LlenarCombos();
+
+            LlenarTrazosCanvas();
+
+
+            this._consulta = c;
+            this._paciente = p;
+
+            // Llenar informacion del paciente
+            this.txtNombrePaciente.Text = p.Nombre;
+            this.lblExpediente.Text = p.ID.ToString();
+            this.txtEdad.Text = (DateTime.Today.Year - p.FechaNacimiento.Year).ToString();
+            this.dtpFechaNacimiento.Text = p.FechaNacimiento.ToString();
+            this.txtOcupacion.Text = p.Ocupacion;
+            this.txtTelefono.Text = p.Telefono;
+                    
+            // Llenar informacion de la consulta
+            txtMotivoConsulta.Text = c.MotivoConsulta;
+            //cboPadecimiento.SelectedValue = c.Valoracion;
+            escala1_Click(new PictureBox() {Name = "escala" + c.EscalaDolor } ,new EventArgs());
+
+
+
+            btnBuscar.Visible = false;
+            txtEdad.Enabled = false;
+            txtNombrePaciente.Enabled = false;
+            txtOcupacion.Enabled = false;
+            dtpFechaNacimiento.Enabled = false;
+        }
+
+        private void LlenarTrazosCanvas()
+        {
+            canvasTratamiento.Invalidate();
+
+            canvasMotivoConsulta.Invalidate();
+
+            canvasTratamiento.Invalidate();
+
+            List<PUNTO> trazosMotivoR = new List<PUNTO>();
+            List<PUNTO> trazosMotivoY = new List<PUNTO>();
+            List<PUNTO> trazosMotivoG = new List<PUNTO>();
+            List<PUNTO> trazosMotivoB = new List<PUNTO>();
+
+            List<PUNTO> trazosValoracionR = new List<PUNTO>();
+            List<PUNTO> trazosValoracionY = new List<PUNTO>();
+            List<PUNTO> trazosValoracionG = new List<PUNTO>();
+            List<PUNTO> trazosValoracionB = new List<PUNTO>();
+
+            List<PUNTO> trazosTratamiento = new List<PUNTO>();
+
+
+            using (TerapiModel db = new TerapiModel()) 
+            {
+                IQueryable<PUNTO> puntos = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID);
+
+                foreach (var p in puntos) 
+                {
+                    //TODO: Hay quue generar una funcionalidad para guardar los trazos a la DB.
+                }
+
+            }
+
+        }
+
         public frmConsulta(frmAgenda frmAgenda)
         {
             InitializeComponent();
@@ -74,6 +146,8 @@ namespace Terapp.UI
             InicializarCanvas();
 
             LlenarCombos();
+
+            
 
             this._consulta = frmAgenda.consulta;
             this._paciente = frmAgenda.paciente;
@@ -396,8 +470,8 @@ namespace Terapp.UI
         // Muestra la pantalla AGENDAR CONSULTA
         private void btnAgendarConsulta_Click(object sender, EventArgs e)
         {
-            frmAgregarCita frmAgregarCita = new frmAgregarCita();
-            frmAgregarCita.ShowDialog();
+            frmAgregarCita agregarCita = new frmAgregarCita(_paciente);
+            agregarCita.ShowDialog();
         }
 
         // Genera el recibo en PDF de la consulta
@@ -582,16 +656,16 @@ namespace Terapp.UI
         {
             using (TerapiModel db = new TerapiModel()) 
             {
-                tratamientos = db.TIPO_TRATAMIENTO.ToList();
+                tipo_tratamientos = db.TIPO_TRATAMIENTO.ToList();
                 padecimientos = db.PADECIMIENTOS.ToList();
             }
 
             cboPadecimiento.DataSource = padecimientos;
             cboPadecimiento.ValueMember = "ID";
-            cboPadecimiento.DisplayMember = "Padecimiento1";
+            cboPadecimiento.DisplayMember = "NombrePadecimiento";
 
             
-            cboTratamientos.DataSource = tratamientos;
+            cboTratamientos.DataSource = tipo_tratamientos;
             cboTratamientos.ValueMember = "ID";
             cboTratamientos.DisplayMember = "TipoTratamiento";
 
@@ -599,17 +673,30 @@ namespace Terapp.UI
 
         // Hace refresh del listado de tratamientos ya aplicados en la consulta
         private void RefrescarDGVTratamientos() 
-        {
-            List<TRATAMIENTO> tratamientos = new List<TRATAMIENTO>();
+        {             
 
             using (TerapiModel db = new TerapiModel()) 
             {
-                tratamientos = db.TRATAMIENTOS.ToList();
+                IQueryable<TRATAMIENTO> _tratamientos = db.TRATAMIENTOS.Where(x => x.ConsultaID == this._consulta.ID);
+
+                foreach (var trat in _tratamientos) 
+                {
+                    TIPO_TRATAMIENTO _tipo = db.TIPO_TRATAMIENTO.FirstOrDefault(x => x.ID.ToString() == trat.TipoTratamiento);
+
+
+                    TRATAMIENTOS_AGREGADOS agregado = new TRATAMIENTOS_AGREGADOS();
+
+                    agregado.TipoTratamiento = _tipo.TipoTratamiento;
+                    agregado.Tiempo = trat.Tiempo;
+                    agregado.Comentarios = trat.Comentarios;
+
+                    tratamientos_agregados.Add(agregado);
+                }
+
             }
 
             dgvTratamientos.DataSource = null;
-
-            dgvTratamientos.DataSource = tratamientos;
+            dgvTratamientos.DataSource = tratamientos_agregados;
 
         }
 
@@ -639,6 +726,8 @@ namespace Terapp.UI
             return puntos;
         }
 
+
+
         #endregion
 
         // Guarda solo los tratamientos que se estan aplicando al paciente en la consulta 
@@ -663,6 +752,8 @@ namespace Terapp.UI
                 db.TRATAMIENTOS.Add(tratamiento);
                 db.SaveChanges();
             }
+
+
 
             RefrescarDGVTratamientos();
         }

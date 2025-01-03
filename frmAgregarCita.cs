@@ -11,7 +11,6 @@ namespace Terapp.UI
 {
     public partial class frmAgregarCita : Form
     {
-        frmConsulta _consulta;
         public PACIENTE _paciente;
         DateTime _fechaConsulta;
         public frmAgregarCita()
@@ -24,6 +23,8 @@ namespace Terapp.UI
             InitializeComponent();
 
             this._paciente = paciente;
+
+            txtPaciente.Text = _paciente.Nombre;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -31,10 +32,7 @@ namespace Terapp.UI
             _fechaConsulta = FormatearHora();
 
             using (TerapiModel db = new TerapiModel()) 
-            {
-               
-               
-
+            {            
                 CONSULTA consulta = new CONSULTA();
                 consulta.FechaConsulta = _fechaConsulta;
                 consulta.PacienteID = _paciente.ID;
@@ -71,8 +69,6 @@ namespace Terapp.UI
 
             using (TerapiModel db = new TerapiModel()) 
             {
-               
-
                 _paciente = db.PACIENTES.FirstOrDefault(x => x.Nombre == txtPaciente.Text);
 
                 if (_paciente == null)

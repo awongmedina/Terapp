@@ -80,6 +80,7 @@
             this.cboPadecimiento = new System.Windows.Forms.ComboBox();
             this.canvasValoracion = new System.Windows.Forms.Panel();
             this.tabTratamiento = new System.Windows.Forms.TabPage();
+            this.lblErrorTiempo = new System.Windows.Forms.Label();
             this.cboTratamientos = new System.Windows.Forms.ComboBox();
             this.btnGuardarTratamiento = new System.Windows.Forms.Button();
             this.dgvTratamientos = new System.Windows.Forms.DataGridView();
@@ -89,7 +90,6 @@
             this.txtTiempoTratamiento = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.canvasTratamiento = new System.Windows.Forms.Panel();
-            this.lblErrorTiempo = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabDatosPaciente.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -176,7 +176,7 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Franklin Gothic Book", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
             this.lblError.Location = new System.Drawing.Point(334, 60);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(406, 34);
@@ -677,6 +677,16 @@
             this.tabTratamiento.TabIndex = 3;
             this.tabTratamiento.Text = "TRATAMIENTO";
             // 
+            // lblErrorTiempo
+            // 
+            this.lblErrorTiempo.AutoSize = true;
+            this.lblErrorTiempo.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorTiempo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTiempo.Location = new System.Drawing.Point(570, 98);
+            this.lblErrorTiempo.Name = "lblErrorTiempo";
+            this.lblErrorTiempo.Size = new System.Drawing.Size(0, 16);
+            this.lblErrorTiempo.TabIndex = 10;
+            // 
             // cboTratamientos
             // 
             this.cboTratamientos.FormattingEnabled = true;
@@ -698,6 +708,7 @@
             // 
             // dgvTratamientos
             // 
+            this.dgvTratamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTratamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTratamientos.Location = new System.Drawing.Point(9, 549);
             this.dgvTratamientos.Name = "dgvTratamientos";
@@ -758,16 +769,6 @@
             this.canvasTratamiento.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseDown);
             this.canvasTratamiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseMove);
             this.canvasTratamiento.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseUp);
-            // 
-            // lblErrorTiempo
-            // 
-            this.lblErrorTiempo.AutoSize = true;
-            this.lblErrorTiempo.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorTiempo.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTiempo.Location = new System.Drawing.Point(570, 98);
-            this.lblErrorTiempo.Name = "lblErrorTiempo";
-            this.lblErrorTiempo.Size = new System.Drawing.Size(0, 16);
-            this.lblErrorTiempo.TabIndex = 10;
             // 
             // frmConsulta
             // 

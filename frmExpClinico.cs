@@ -7,7 +7,8 @@ namespace Terapp.UI
 {
     public partial class frmExpClinico : Form
     {
-        private CONSULTA consulta;
+        private CONSULTA consulta = new CONSULTA();
+        private PACIENTE paciente = new PACIENTE();
         private List<CONSULTA> consultas;
         public frmExpClinico()
         {
@@ -63,6 +64,30 @@ namespace Terapp.UI
             dgvConsultas.Columns["PacienteID"].Visible = false;
 
 
+        }
+
+        private void dgvConsultas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                paciente = new PACIENTE();
+
+                int rowIndex = e.RowIndex;
+                this.consulta = (CONSULTA)dgvConsultas.Rows[rowIndex].DataBoundItem;
+
+                using (TerapiModel db = new TerapiModel())
+                {
+                    
+                    paciente = db.PACIENTES.FirstOrDefault(x => x.ID == this.consulta.PacienteID);
+
+                }
+
+                frmConsulta frmConsulta = new frmConsulta(this.paciente, this.consulta);
+                frmConsulta.ShowDialog();
+                this.Close();
+               
+            }
         }
     }
 }

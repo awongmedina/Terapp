@@ -36,6 +36,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabTratamientos = new System.Windows.Forms.TabControl();
             this.tabAfecciones = new System.Windows.Forms.TabPage();
+            this.lblErrorPadecimiento = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.chkEstatusAfeccion = new System.Windows.Forms.CheckBox();
             this.btnGuardarAfeccion = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblErrorTratamiento = new System.Windows.Forms.Label();
             this.btnGuardarTipoTratamiento = new System.Windows.Forms.Button();
             this.chkEstatusTratamiento = new System.Windows.Forms.CheckBox();
             this.txtDescripcionTratamiento = new System.Windows.Forms.TextBox();
@@ -52,10 +54,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabCalendario = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGuardarCalendario = new System.Windows.Forms.Button();
+            this.txtPacientesSimultaneos = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblErrorPacientes = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabTratamientos.SuspendLayout();
             this.tabAfecciones.SuspendLayout();
@@ -109,6 +113,7 @@
             // tabAfecciones
             // 
             this.tabAfecciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabAfecciones.Controls.Add(this.lblErrorPadecimiento);
             this.tabAfecciones.Controls.Add(this.label4);
             this.tabAfecciones.Controls.Add(this.chkEstatusAfeccion);
             this.tabAfecciones.Controls.Add(this.btnGuardarAfeccion);
@@ -122,6 +127,16 @@
             this.tabAfecciones.Size = new System.Drawing.Size(751, 595);
             this.tabAfecciones.TabIndex = 0;
             this.tabAfecciones.Text = "AGREGAR PADECIMIENTO";
+            // 
+            // lblErrorPadecimiento
+            // 
+            this.lblErrorPadecimiento.AutoSize = true;
+            this.lblErrorPadecimiento.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorPadecimiento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPadecimiento.Location = new System.Drawing.Point(116, 125);
+            this.lblErrorPadecimiento.Name = "lblErrorPadecimiento";
+            this.lblErrorPadecimiento.Size = new System.Drawing.Size(0, 21);
+            this.lblErrorPadecimiento.TabIndex = 7;
             // 
             // label4
             // 
@@ -145,6 +160,7 @@
             this.chkEstatusAfeccion.TabIndex = 5;
             this.chkEstatusAfeccion.Text = "ACTIVO ?";
             this.chkEstatusAfeccion.UseVisualStyleBackColor = true;
+            this.chkEstatusAfeccion.CheckedChanged += new System.EventHandler(this.chkEstatusAfeccion_CheckedChanged);
             // 
             // btnGuardarAfeccion
             // 
@@ -155,6 +171,7 @@
             this.btnGuardarAfeccion.Size = new System.Drawing.Size(107, 67);
             this.btnGuardarAfeccion.TabIndex = 4;
             this.btnGuardarAfeccion.UseVisualStyleBackColor = true;
+            this.btnGuardarAfeccion.Click += new System.EventHandler(this.btnGuardarAfeccion_Click);
             // 
             // txtDescripcionAfeccion
             // 
@@ -192,6 +209,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabPage2.Controls.Add(this.lblErrorTratamiento);
             this.tabPage2.Controls.Add(this.btnGuardarTipoTratamiento);
             this.tabPage2.Controls.Add(this.chkEstatusTratamiento);
             this.tabPage2.Controls.Add(this.txtDescripcionTratamiento);
@@ -206,6 +224,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "AGREGAR TIPO DE TRATAMIENTO";
             // 
+            // lblErrorTratamiento
+            // 
+            this.lblErrorTratamiento.AutoSize = true;
+            this.lblErrorTratamiento.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorTratamiento.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTratamiento.Location = new System.Drawing.Point(132, 131);
+            this.lblErrorTratamiento.Name = "lblErrorTratamiento";
+            this.lblErrorTratamiento.Size = new System.Drawing.Size(480, 21);
+            this.lblErrorTratamiento.TabIndex = 7;
+            this.lblErrorTratamiento.Text = "VERIFICA QUE TODOS LOS CAMPOS DE TEXTO ESTEN LLENOS";
+            // 
             // btnGuardarTipoTratamiento
             // 
             this.btnGuardarTipoTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
@@ -215,6 +244,7 @@
             this.btnGuardarTipoTratamiento.Size = new System.Drawing.Size(107, 67);
             this.btnGuardarTipoTratamiento.TabIndex = 6;
             this.btnGuardarTipoTratamiento.UseVisualStyleBackColor = true;
+            this.btnGuardarTipoTratamiento.Click += new System.EventHandler(this.btnGuardarTipoTratamiento_Click);
             // 
             // chkEstatusTratamiento
             // 
@@ -227,6 +257,7 @@
             this.chkEstatusTratamiento.TabIndex = 5;
             this.chkEstatusTratamiento.Text = "ACTIVO ?";
             this.chkEstatusTratamiento.UseVisualStyleBackColor = true;
+            this.chkEstatusTratamiento.CheckedChanged += new System.EventHandler(this.chkEstatusTratamiento_CheckedChanged);
             // 
             // txtDescripcionTratamiento
             // 
@@ -274,7 +305,9 @@
             // tabCalendario
             // 
             this.tabCalendario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.tabCalendario.Controls.Add(this.textBox1);
+            this.tabCalendario.Controls.Add(this.lblErrorPacientes);
+            this.tabCalendario.Controls.Add(this.btnGuardarCalendario);
+            this.tabCalendario.Controls.Add(this.txtPacientesSimultaneos);
             this.tabCalendario.Controls.Add(this.label8);
             this.tabCalendario.Location = new System.Drawing.Point(4, 30);
             this.tabCalendario.Name = "tabCalendario";
@@ -283,13 +316,25 @@
             this.tabCalendario.TabIndex = 2;
             this.tabCalendario.Text = "CALENDARIO";
             // 
-            // textBox1
+            // btnGuardarCalendario
             // 
-            this.textBox1.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(329, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 32);
-            this.textBox1.TabIndex = 2;
+            this.btnGuardarCalendario.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
+            this.btnGuardarCalendario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardarCalendario.Location = new System.Drawing.Point(329, 478);
+            this.btnGuardarCalendario.Name = "btnGuardarCalendario";
+            this.btnGuardarCalendario.Size = new System.Drawing.Size(107, 67);
+            this.btnGuardarCalendario.TabIndex = 7;
+            this.btnGuardarCalendario.UseVisualStyleBackColor = true;
+            this.btnGuardarCalendario.Click += new System.EventHandler(this.btnGuardarCalendario_Click);
+            // 
+            // txtPacientesSimultaneos
+            // 
+            this.txtPacientesSimultaneos.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPacientesSimultaneos.Location = new System.Drawing.Point(262, 147);
+            this.txtPacientesSimultaneos.Name = "txtPacientesSimultaneos";
+            this.txtPacientesSimultaneos.Size = new System.Drawing.Size(186, 32);
+            this.txtPacientesSimultaneos.TabIndex = 2;
+            this.txtPacientesSimultaneos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPacientesSimultaneos_KeyPress);
             // 
             // label8
             // 
@@ -320,6 +365,16 @@
             this.pictureBox2.Size = new System.Drawing.Size(130, 74);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            // 
+            // lblErrorPacientes
+            // 
+            this.lblErrorPacientes.AutoSize = true;
+            this.lblErrorPacientes.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorPacientes.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorPacientes.Location = new System.Drawing.Point(106, 231);
+            this.lblErrorPacientes.Name = "lblErrorPacientes";
+            this.lblErrorPacientes.Size = new System.Drawing.Size(0, 21);
+            this.lblErrorPacientes.TabIndex = 8;
             // 
             // frmConfiguracion
             // 
@@ -379,7 +434,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGuardarTipoTratamiento;
         private System.Windows.Forms.TabPage tabCalendario;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPacientesSimultaneos;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblErrorPadecimiento;
+        private System.Windows.Forms.Label lblErrorTratamiento;
+        private System.Windows.Forms.Button btnGuardarCalendario;
+        private System.Windows.Forms.Label lblErrorPacientes;
     }
 }

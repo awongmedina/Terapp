@@ -128,11 +128,14 @@
             // 
             this.dgvConsultas.AllowUserToAddRows = false;
             this.dgvConsultas.AllowUserToDeleteRows = false;
+            this.dgvConsultas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsultas.Location = new System.Drawing.Point(13, 283);
             this.dgvConsultas.Name = "dgvConsultas";
+            this.dgvConsultas.ReadOnly = true;
             this.dgvConsultas.Size = new System.Drawing.Size(759, 586);
             this.dgvConsultas.TabIndex = 6;
+            this.dgvConsultas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultas_CellClick);
             // 
             // lblError
             // 
