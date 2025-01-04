@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,8 +23,6 @@ namespace Terapp.UI
         private List<TIPO_TRATAMIENTO> tipo_tratamientos = new List<TIPO_TRATAMIENTO>();
         private List<TRATAMIENTO> tratamientos = new List<TRATAMIENTO>();
         private List<TRATAMIENTOS_AGREGADOS> tratamientos_agregados = new List<TRATAMIENTOS_AGREGADOS>();
-
-
 
         // Propiedades para los dibujos del tab MOTIVO DE CONSULTA
         Graphics graficoMotivoConsulta;
@@ -58,8 +57,8 @@ namespace Terapp.UI
         int tratamientoCursorY = -1;
         string trazosTratamiento = "";
 
-
-
+        #region CONSTRUCTORES
+        // Constructor por default
         public frmConsulta()
         {
             InitializeComponent();
@@ -69,9 +68,13 @@ namespace Terapp.UI
             LlenarCombos();
         }
 
+        //Constructor con parametros PACIENTE y CONSULTA
         public frmConsulta(PACIENTE p, CONSULTA c)
         {
-            InitializeComponent();
+            InitializeComponent();            
+
+            this._consulta = c;
+            this._paciente = p;
 
             InicializarCanvas();
 
@@ -79,9 +82,7 @@ namespace Terapp.UI
 
             LlenarTrazosCanvas();
 
-
-            this._consulta = c;
-            this._paciente = p;
+            RefrescarDGVTratamientos();
 
             // Llenar informacion del paciente
             this.txtNombrePaciente.Text = p.Nombre;
@@ -93,61 +94,26 @@ namespace Terapp.UI
                     
             // Llenar informacion de la consulta
             txtMotivoConsulta.Text = c.MotivoConsulta;
-            //cboPadecimiento.SelectedValue = c.Valoracion;
+            cboPadecimiento.Text = c.Valoracion;
             escala1_Click(new PictureBox() {Name = "escala" + c.EscalaDolor } ,new EventArgs());
+            
 
-
-
-            btnBuscar.Visible = false;
+            btnBuscar.Enabled = false;
             txtEdad.Enabled = false;
             txtNombrePaciente.Enabled = false;
             txtOcupacion.Enabled = false;
             dtpFechaNacimiento.Enabled = false;
         }
 
-        private void LlenarTrazosCanvas()
-        {
-            canvasTratamiento.Invalidate();
-
-            canvasMotivoConsulta.Invalidate();
-
-            canvasTratamiento.Invalidate();
-
-            List<PUNTO> trazosMotivoR = new List<PUNTO>();
-            List<PUNTO> trazosMotivoY = new List<PUNTO>();
-            List<PUNTO> trazosMotivoG = new List<PUNTO>();
-            List<PUNTO> trazosMotivoB = new List<PUNTO>();
-
-            List<PUNTO> trazosValoracionR = new List<PUNTO>();
-            List<PUNTO> trazosValoracionY = new List<PUNTO>();
-            List<PUNTO> trazosValoracionG = new List<PUNTO>();
-            List<PUNTO> trazosValoracionB = new List<PUNTO>();
-
-            List<PUNTO> trazosTratamiento = new List<PUNTO>();
-
-
-            using (TerapiModel db = new TerapiModel()) 
-            {
-                IQueryable<PUNTO> puntos = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID);
-
-                foreach (var p in puntos) 
-                {
-                    //TODO: Hay quue generar una funcionalidad para guardar los trazos a la DB.
-                }
-
-            }
-
-        }
-
+       
+        // Constructor con parametro frmAgenda
         public frmConsulta(frmAgenda frmAgenda)
         {
             InitializeComponent();
 
             InicializarCanvas();
 
-            LlenarCombos();
-
-            
+            LlenarCombos();            
 
             this._consulta = frmAgenda.consulta;
             this._paciente = frmAgenda.paciente;
@@ -160,12 +126,14 @@ namespace Terapp.UI
             this.txtTelefono.Text = frmAgenda.paciente.Telefono;
             
             
-            btnBuscar.Visible = false;
+            btnBuscar.Enabled = false;
             txtEdad.Enabled = false;
             txtNombrePaciente.Enabled = false; 
             txtOcupacion.Enabled = false;
             dtpFechaNacimiento.Enabled = false;
         }
+
+        #endregion
 
         private void frmConsulta_Load(object sender, EventArgs e)
         {
@@ -179,13 +147,12 @@ namespace Terapp.UI
             PictureBox escalaSeleccionada = (PictureBox)sender;
             
             escalaSeleccionada.BorderStyle = BorderStyle.Fixed3D;
-            _consulta.EscalaDolor = escalaSeleccionada.Name.Length - 1;
+            _escalaSeleccionada = escalaSeleccionada.Name.Length - 1;
 
             foreach (PictureBox control in flwEscaladolor.Controls)
             {
                 if (control.Name != escalaSeleccionada.Name)
-                    control.BorderStyle = BorderStyle.None;
-                    
+                    control.BorderStyle = BorderStyle.None;                    
             }
         }
 
@@ -235,6 +202,8 @@ namespace Terapp.UI
         #endregion
 
         #region METODOS MOUSE DOWN
+
+        // Detecta cuando se presiona el boton del mouse para dibujar en el canvas MOTIVO CONSULTA
         private void canvasMotivoConsulta_MouseDown(object sender, MouseEventArgs e)
         {
             motivoCursorMoving = true;
@@ -242,6 +211,7 @@ namespace Terapp.UI
             motivoCursorY = e.Y;
         }
 
+        // Detecta cuando se presiona el boton del mouse para dibujar en el canvas VALORACION
         private void canvasValoracion_MouseDown(object sender, MouseEventArgs e)
         {
             valoracionCursorMoving = true;
@@ -249,6 +219,7 @@ namespace Terapp.UI
             valoracionCursorY = e.Y;
         }
 
+        // Detecta cuando se presiona el boton del mouse para dibujar en el canvas TRATAMIENTO
         private void canvasTratamiento_MouseDown(object sender, MouseEventArgs e)
         {
             tratamientoCursorMoving = true;
@@ -260,6 +231,7 @@ namespace Terapp.UI
 
         #region METODOS MOUSE UP
 
+        // Detecta cuando se deja de presionar el boton del mouse para dejar de dibujar en el canvas MOTIVO CONSULTA
         private void canvasTratamiento_MouseUp(object sender, MouseEventArgs e)
         {
             tratamientoCursorMoving = false;
@@ -267,13 +239,15 @@ namespace Terapp.UI
             tratamientoCursorY = -1;
         }
 
+        // Detecta cuando se deja de presionar el boton del mouse para dejar de dibujar en el canvas VALORACION
         private void canvasValoracion_MouseUp(object sender, MouseEventArgs e)
         {
             valoracionCursorMoving = false;
             valoracionCursorX = -1;
             valoracionCursorY = -1;
         }
-
+        
+        // Detecta cuando se deja de presionar el boton del mouse para dejar de dibujar en el canvas TRATAMIENTO
         private void canvasMotivoConsulta_MouseUp(object sender, MouseEventArgs e)
         {
             motivoCursorMoving = false;
@@ -302,7 +276,6 @@ namespace Terapp.UI
 
                 motivoCursorX = e.X;
                 motivoCursorY = e.Y;
-
                 
             }            
         }
@@ -321,11 +294,7 @@ namespace Terapp.UI
                 GuardarPuntos(valoracionCursorPen.Color, nombre, valoracionCursorX, valoracionCursorY);
 
                 valoracionCursorX = e.X;
-                valoracionCursorY = e.Y;
-                
-
-               
-
+                valoracionCursorY = e.Y;   
             }
         }
 
@@ -344,77 +313,26 @@ namespace Terapp.UI
 
                 tratamientoCursorX = e.X;
                 tratamientoCursorY = e.Y;
-
-                
-
-            }
-        }
-
-        //Guarda los puntos de cada canvas en un string especifico para cada canvas y color dentro del canvas
-        private void GuardarPuntos(Color color, string panel, int X, int Y)
-        {
-            if (panel == "canvasMotivoConsulta")
-            {
-                switch (color.Name)
-                {
-                    case "Red":
-                        trazosMotivoRed = trazosMotivoRed + $"{X},{Y};";
-                        break;
-                    case "Yellow":
-                        trazosMotivoYellow = trazosMotivoYellow + $"{X},{Y};";
-                        break;
-                    case "Green":
-                        trazosMotivoGreen = trazosMotivoGreen + $"{X},{Y};";
-                        break;
-                    case "Black":
-                        trazosMotivoBlack = trazosMotivoBlack + $"{X},{Y};";
-                        break;
-                }
-            }
-
-            if (panel == "canvasValoracion")
-            {
-                switch (color.Name)
-                {
-                    case "Red":
-                        trazosValoracionRed = trazosValoracionRed + $"{X},{Y};";
-                        break;
-                    case "Yellow":
-                        trazosValoracionYellow = trazosValoracionYellow + $"{X},{Y};";
-                        break;
-                    case "Green":
-                        trazosValoracionGreen = trazosValoracionGreen + $"{X},{Y};";
-                        break;
-                    case "Black":
-                        trazosValoracionBlack = trazosValoracionBlack + $"{X},{Y};";
-                        break;
-                }
-            }
-
-            if (panel == "canvasTratamiento")
-            {
-                trazosTratamiento = trazosTratamiento + $"{X},{Y};";
             }
         }
 
 
         #endregion
 
-        #region METODOS EXTRA
+        #region METODOS DE LOS CONTROLES
 
         // Guarda todos los cambios hechos en la consulta
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (_consulta == null)
-                _consulta = new CONSULTA();
-
-            _consulta.MotivoConsulta = txtMotivoConsulta.Text;
-            _consulta.EscalaDolor = _escalaSeleccionada;
-            _consulta.Valoracion = cboPadecimiento.SelectedValue.ToString();
-
-
-            using (TerapiModel db = new TerapiModel()) 
+            using (TerapiModel db = new TerapiModel())
             {
+                if (_consulta == null)
+                    _consulta = new CONSULTA();
+
+                _consulta.MotivoConsulta = txtMotivoConsulta.Text;
+                _consulta.EscalaDolor = _escalaSeleccionada;
+                _consulta.Valoracion = cboPadecimiento.Text;
+
                 if (_paciente == null)
                 {
                     _paciente = new PACIENTE();
@@ -428,17 +346,84 @@ namespace Terapp.UI
 
                     _paciente = db.PACIENTES.FirstOrDefault(x => x.Nombre == txtNombrePaciente.Text);
 
-
                     _consulta.PacienteID = _paciente.ID;
-                    _consulta.FechaConsulta = DateTime.Today;
+                    _consulta.FechaConsulta = DateTime.Now;
+                }
+                else
+                {
+                    _consulta.PacienteID = _paciente.ID;
+                }
 
-                    db.CONSULTAS.Add(_consulta);    
-                    
-                }                
-
+                db.CONSULTAS.Add(_consulta);
                 db.SaveChanges();
+
+                List<PUNTO> allPoints = GenerarPuntos();
+
+                foreach (var p in allPoints)
+                {
+                    if (p.Coordenadas != "")
+                    {
+                        db.PUNTOS.Add(p);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        
+                        break;
+                    }
+                }
+
+                foreach (var tratamiento in tratamientos) 
+                {
+                    TRATAMIENTO t = new TRATAMIENTO();
+                    t.ConsultaID = _consulta.ID;
+                    t.TipoTratamiento = tratamiento.TipoTratamiento;
+                    t.Comentarios = tratamiento.Comentarios;
+                    t.Tiempo = tratamiento.Tiempo;
+
+                    db.TRATAMIENTOS.Add(t);
+                    db.SaveChanges();
+                }
+                
             }
 
+            lblGuardado.Text = "CAMBIOS GUARDADOS CON EXITO!";
+            lblGuardado.Visible = true;
+
+        }
+
+        // Guarda solo los tratamientos que se estan aplicando al paciente en la consulta 
+        private void btnGuardarTratamiento_Click(object sender, EventArgs e)
+        {
+            if (txtTiempoTratamiento.Text == "" || txtTiempoTratamiento.Text == null)
+            {
+                lblErrorTiempo.Text = "NO HAS INGRESADO EL TIEMPO";
+                return;
+            }         
+
+            TRATAMIENTO tratamiento = new TRATAMIENTO();
+
+            tratamiento.TipoTratamiento = cboTratamientos.Text;
+            tratamiento.Tiempo = Convert.ToInt16(txtTiempoTratamiento.Text);
+            tratamiento.Comentarios = txtComentariosTratamiento.Text;
+
+            tratamientos.Add(tratamiento);
+
+            RefrescarDGVTratamientos(tratamiento);
+        }
+
+        // Detecta el caracter ingresado en el campo de TIEMPO TRATAMIENTO y solo permite numeros.
+        private void txtTiempoTratamiento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+
+            }
+            else
+            {
+                lblErrorTiempo.Text = "";
+            }
         }
 
         // Hace la busqueda del paciente
@@ -446,9 +431,9 @@ namespace Terapp.UI
         {
             if (txtNombrePaciente.Text == null) return;
 
-            using (TerapiModel db = new TerapiModel()) 
+            using (TerapiModel db = new TerapiModel())
             {
-               
+
                 PACIENTE p = new PACIENTE();
                 p = db.PACIENTES.FirstOrDefault(x => x.Nombre == txtNombrePaciente.Text);
                 if (p != null)
@@ -459,7 +444,7 @@ namespace Terapp.UI
                     dtpFechaNacimiento.Text = p.FechaNacimiento.ToString();
                     lblError.Visible = false;
                 }
-                else 
+                else
                 {
                     lblError.Visible = true;
                 }
@@ -477,8 +462,8 @@ namespace Terapp.UI
         // Genera el recibo en PDF de la consulta
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
-            frmRecibo frmRecibo = new frmRecibo();
-            frmRecibo.ShowDialog();
+            frmCostoCita costo = new frmCostoCita(_paciente, _consulta);
+            costo.ShowDialog();
         }
 
         // Detecta cuando se cambia de pestaña y re-dibuja los trazos ya hechos
@@ -494,7 +479,87 @@ namespace Terapp.UI
             if (tabControl.SelectedTab.Name == "tabValoracion")
                 canvasValoracion.Invalidate();
         }
-        
+
+        #endregion
+
+        #region METODOS EXTRA
+
+        // Rellena los trazos de los canvas con la informacion que se ecuentra en DB
+        private void LlenarTrazosCanvas()
+        {
+            using (TerapiModel db = new TerapiModel())
+            {
+
+                List<PUNTO> prueba = new List<PUNTO>();
+
+                prueba = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "MotivoConsulta" && x.ColorRGB == "Red").ToList();
+                IQueryable<PUNTO> trazosMotivoR = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "MotivoConsulta" && x.ColorRGB == "Red");
+                IQueryable<PUNTO> trazosMotivoY = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "MotivoConsulta" && x.ColorRGB == "Yellow");
+                IQueryable<PUNTO> trazosMotivoG = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "MotivoConsulta" && x.ColorRGB == "Green");
+                IQueryable<PUNTO> trazosMotivoB = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "MotivoConsulta" && x.ColorRGB == "Black");
+
+                IQueryable<PUNTO> trazosValoracionR = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "Valoracion" && x.ColorRGB == "Red");
+                IQueryable<PUNTO> trazosValoracionY = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "Valoracion" && x.ColorRGB == "Yellow");
+                IQueryable<PUNTO> trazosValoracionG = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "Valoracion" && x.ColorRGB == "Green");
+                IQueryable<PUNTO> trazosValoracionB = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "Valoracion" && x.ColorRGB == "Black");
+
+                IQueryable<PUNTO> trazosTratamiento = db.PUNTOS.Where(x => x.ConsultaID == _consulta.ID && x.TipoPuntos == "Tratamiento" && x.ColorRGB == "Black");
+
+                foreach (var p in trazosMotivoB.ToList())
+                {
+                    this.trazosMotivoBlack = this.trazosMotivoBlack + p.Coordenadas;
+                }
+
+                foreach (var p in trazosMotivoY.ToList())
+                {
+                    this.trazosMotivoYellow = this.trazosMotivoYellow + p.Coordenadas;
+                }
+
+                foreach (var p in trazosMotivoR.ToList())
+                {
+                    this.trazosMotivoRed = this.trazosMotivoRed + p.Coordenadas;
+                }
+
+                foreach (var p in trazosMotivoG.ToList())
+                {
+                    this.trazosMotivoGreen = this.trazosMotivoGreen + p.Coordenadas;
+                }
+
+                foreach (var p in trazosValoracionB.ToList())
+                {
+                    this.trazosValoracionBlack = this.trazosValoracionBlack + p.Coordenadas;
+                }
+
+                foreach (var p in trazosValoracionG.ToList())
+                {
+                    this.trazosValoracionGreen = this.trazosValoracionGreen + p.Coordenadas;
+                }
+
+                foreach (var p in trazosValoracionR.ToList())
+                {
+                    this.trazosValoracionRed = this.trazosValoracionRed + p.Coordenadas;
+                }
+
+                foreach (var p in trazosValoracionY.ToList())
+                {
+                    this.trazosValoracionYellow = this.trazosValoracionYellow + p.Coordenadas;
+                }
+
+                foreach (var p in trazosTratamiento.ToList())
+                {
+                    this.trazosTratamiento = this.trazosTratamiento + p.Coordenadas;
+                }
+
+            }
+
+            canvasTratamiento.Invalidate();
+
+            canvasMotivoConsulta.Invalidate();
+
+            canvasTratamiento.Invalidate();
+
+        }
+
         // Sobrecarga del metodo ON PAINT para re-dibujar los trazos hechos en cada canvas
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -672,32 +737,196 @@ namespace Terapp.UI
         }
 
         // Hace refresh del listado de tratamientos ya aplicados en la consulta
+        private void RefrescarDGVTratamientos(TRATAMIENTO tratamiento) 
+        {
+
+            TRATAMIENTOS_AGREGADOS agregado = new TRATAMIENTOS_AGREGADOS();
+
+            agregado.TipoTratamiento = tratamiento.TipoTratamiento;
+            agregado.Tiempo = tratamiento.Tiempo;
+            agregado.Comentarios = tratamiento.Comentarios;
+
+            tratamientos_agregados.Add(agregado);
+
+
+            dgvTratamientos.DataSource = null;
+            dgvTratamientos.DataSource = tratamientos_agregados;
+
+        }
+
         private void RefrescarDGVTratamientos() 
-        {             
-
-            using (TerapiModel db = new TerapiModel()) 
+        {
+            using (TerapiModel db = new TerapiModel())
             {
-                IQueryable<TRATAMIENTO> _tratamientos = db.TRATAMIENTOS.Where(x => x.ConsultaID == this._consulta.ID);
+                this.tratamientos = db.TRATAMIENTOS.Where(x => x.ConsultaID == this._consulta.ID).ToList();                
 
-                foreach (var trat in _tratamientos) 
+
+                foreach (var tratamiento in tratamientos)
                 {
-                    TIPO_TRATAMIENTO _tipo = db.TIPO_TRATAMIENTO.FirstOrDefault(x => x.ID.ToString() == trat.TipoTratamiento);
-
-
                     TRATAMIENTOS_AGREGADOS agregado = new TRATAMIENTOS_AGREGADOS();
 
-                    agregado.TipoTratamiento = _tipo.TipoTratamiento;
-                    agregado.Tiempo = trat.Tiempo;
-                    agregado.Comentarios = trat.Comentarios;
+                    agregado.TipoTratamiento = tratamiento.TipoTratamiento;
+                    agregado.Tiempo = tratamiento.Tiempo;
+                    agregado.Comentarios = tratamiento.Comentarios;
 
                     tratamientos_agregados.Add(agregado);
                 }
-
             }
 
             dgvTratamientos.DataSource = null;
             dgvTratamientos.DataSource = tratamientos_agregados;
 
+        }
+
+        //Guarda los puntos de cada canvas en un string especifico para cada canvas y color dentro del canvas
+        private void GuardarPuntos(Color color, string panel, int X, int Y)
+        {
+            if (panel == "canvasMotivoConsulta")
+            {
+                switch (color.Name)
+                {
+                    case "Red":
+                        trazosMotivoRed = trazosMotivoRed + $"{X},{Y};";
+                        break;
+                    case "Yellow":
+                        trazosMotivoYellow = trazosMotivoYellow + $"{X},{Y};";
+                        break;
+                    case "Green":
+                        trazosMotivoGreen = trazosMotivoGreen + $"{X},{Y};";
+                        break;
+                    case "Black":
+                        trazosMotivoBlack = trazosMotivoBlack + $"{X},{Y};";
+                        break;
+                }
+            }
+
+            if (panel == "canvasValoracion")
+            {
+                switch (color.Name)
+                {
+                    case "Red":
+                        trazosValoracionRed = trazosValoracionRed + $"{X},{Y};";
+                        break;
+                    case "Yellow":
+                        trazosValoracionYellow = trazosValoracionYellow + $"{X},{Y};";
+                        break;
+                    case "Green":
+                        trazosValoracionGreen = trazosValoracionGreen + $"{X},{Y};";
+                        break;
+                    case "Black":
+                        trazosValoracionBlack = trazosValoracionBlack + $"{X},{Y};";
+                        break;
+                }
+            }
+
+            if (panel == "canvasTratamiento")
+            {
+                trazosTratamiento = trazosTratamiento + $"{X},{Y};";
+            }
+        }
+
+        private List<PUNTO> GenerarPuntos()
+        {
+
+            List<PUNTO> allPoints = new List<PUNTO>();
+            PUNTO puntoMotivoB = new PUNTO();
+            PUNTO puntoMotivoR = new PUNTO();
+            PUNTO puntoMotivoY = new PUNTO();
+            PUNTO puntoMotivoG = new PUNTO();
+
+            PUNTO puntoValoracionB = new PUNTO();
+            PUNTO puntoValoracionR = new PUNTO();
+            PUNTO puntoValoracionY = new PUNTO();
+            PUNTO puntoValoracionG = new PUNTO();
+
+            PUNTO puntoTratamiento = new PUNTO();
+
+            //Generar objetos PUNTO para la tab Motivo Consulta
+            if (!string.IsNullOrEmpty(this.trazosMotivoBlack))
+            {
+                puntoMotivoB.ConsultaID = this._consulta.ID;
+                puntoMotivoB.Coordenadas = this.trazosMotivoBlack;
+                puntoMotivoB.ColorRGB = Color.Black.Name.ToString();
+                puntoMotivoB.TipoPuntos = "MotivoConsulta";
+                allPoints.Add(puntoMotivoB);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosMotivoRed))
+            {
+                puntoMotivoR.ConsultaID = this._consulta.ID;
+                puntoMotivoR.Coordenadas = this.trazosMotivoRed;
+                puntoMotivoR.ColorRGB = Color.Red.Name.ToString();
+                puntoMotivoR.TipoPuntos = "MotivoConsulta";
+                allPoints.Add(puntoMotivoR);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosMotivoYellow))
+            {
+                puntoMotivoY.ConsultaID = this._consulta.ID;
+                puntoMotivoY.Coordenadas = this.trazosMotivoYellow;
+                puntoMotivoY.ColorRGB = Color.Yellow.Name.ToString();
+                puntoMotivoY.TipoPuntos = "MotivoConsulta";
+                allPoints.Add(puntoMotivoY);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosMotivoGreen))
+            {
+                puntoMotivoG.ConsultaID = this._consulta.ID;
+                puntoMotivoG.Coordenadas = this.trazosMotivoGreen;
+                puntoMotivoG.ColorRGB = Color.Green.Name.ToString();
+                puntoMotivoG.TipoPuntos = "MotivoConsulta";
+                allPoints.Add(puntoMotivoG);
+            }
+
+
+            // Genera los objetos PUNTO para la tab VALORACION
+            if (!string.IsNullOrEmpty(this.trazosMotivoBlack))
+            {
+                puntoValoracionB.ConsultaID = this._consulta.ID;
+                puntoValoracionB.Coordenadas = this.trazosValoracionBlack;
+                puntoValoracionB.ColorRGB = Color.Black.Name.ToString();
+                puntoValoracionB.TipoPuntos = "Valoracion";
+                allPoints.Add(puntoValoracionB);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosMotivoRed))
+            {
+                puntoValoracionR.ConsultaID = this._consulta.ID;
+                puntoValoracionR.Coordenadas = this.trazosValoracionRed;
+                puntoValoracionR.ColorRGB = Color.Red.Name.ToString();
+                puntoValoracionR.TipoPuntos = "Valoracion";
+                allPoints.Add(puntoValoracionR);
+            }
+
+
+            if (!string.IsNullOrEmpty(this.trazosValoracionGreen))
+            {
+                puntoValoracionG.ConsultaID = this._consulta.ID;
+                puntoValoracionG.Coordenadas = this.trazosValoracionGreen;
+                puntoValoracionG.ColorRGB = Color.Green.Name.ToString();
+                puntoValoracionG.TipoPuntos = "Valoracion";
+                allPoints.Add(puntoValoracionG);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosValoracionYellow))
+            {
+                puntoValoracionY.ConsultaID = this._consulta.ID;
+                puntoValoracionY.Coordenadas = this.trazosValoracionYellow;
+                puntoValoracionY.ColorRGB = Color.Yellow.Name.ToString();
+                puntoValoracionY.TipoPuntos = "Valoracion";
+                allPoints.Add(puntoValoracionY);
+            }
+
+            if (!string.IsNullOrEmpty(this.trazosTratamiento))
+            {
+                puntoTratamiento.ConsultaID = this._consulta.ID;
+                puntoTratamiento.Coordenadas = this.trazosTratamiento;
+                puntoTratamiento.ColorRGB = Color.Black.Name.ToString();
+                puntoTratamiento.TipoPuntos = "Tratamiento";
+                allPoints.Add(puntoTratamiento);
+            }
+
+            return allPoints;
         }
 
         // Convierte el string con los puntos en una lista de objetos POINT
@@ -726,51 +955,9 @@ namespace Terapp.UI
             return puntos;
         }
 
-
-
         #endregion
 
-        // Guarda solo los tratamientos que se estan aplicando al paciente en la consulta 
-        private void btnGuardarTratamiento_Click(object sender, EventArgs e)
-        {
-            if (txtTiempoTratamiento.Text == "" || txtTiempoTratamiento.Text == null) 
-            {
-                lblErrorTiempo.Text = "NO HAS INGRESADO EL TIEMPO";
-                return;
-            }
-                
 
-            TRATAMIENTO tratamiento = new TRATAMIENTO();
-
-            tratamiento.TipoTratamiento = cboTratamientos.SelectedValue.ToString();
-            tratamiento.Tiempo  = Convert.ToInt16(txtTiempoTratamiento.Text);
-            tratamiento.Comentarios = txtComentariosTratamiento.Text;
-            tratamiento.ConsultaID = _consulta.ID;
-
-            using (TerapiModel db = new TerapiModel()) 
-            {
-                db.TRATAMIENTOS.Add(tratamiento);
-                db.SaveChanges();
-            }
-
-
-
-            RefrescarDGVTratamientos();
-        }
-
-        // Detecta el caracter ingresado en el campo de TIEMPO TRATAMIENTO y solo permite numeros.
-        private void txtTiempoTratamiento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-
-            }
-            else 
-            {
-                lblErrorTiempo.Text = "";
-            }            
-        }
     }
 
 }

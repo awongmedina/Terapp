@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Security.Policy;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace Terapp.UI
             if (txtDescripcionAfeccion.Text == "" || txtNombreAfeccion.Text == "") 
             {
                 lblErrorPadecimiento.Text = "VERIFICA QUE TODOS LOS CAMPOS DE TEXTO ESTEN LLENOS";
-                lblErrorPadecimiento.BackColor = Color.Red;
+                lblErrorPadecimiento.ForeColor = Color.Red;
                 return;
             }
 
@@ -42,7 +43,7 @@ namespace Terapp.UI
                 db.SaveChanges();
 
                 lblErrorPadecimiento.Text = "PADECIMIENTO GUARDADO CON EXITO!";
-                lblErrorPadecimiento.BackColor = Color.Green;
+                lblErrorPadecimiento.ForeColor = Color.Green;
 
             }
         }
@@ -64,7 +65,7 @@ namespace Terapp.UI
             if (txtDescripcionTratamiento.Text == "" || txtNombreTratamiento.Text == "")
             {
                 lblErrorTratamiento.Text = "VERIFICA QUE TODOS LOS CAMPOS DE TEXTO ESTEN LLENOS";
-                lblErrorTratamiento.BackColor = Color.Red;
+                lblErrorTratamiento.ForeColor = Color.Red;
                 return;
             }
 
@@ -80,7 +81,7 @@ namespace Terapp.UI
                 db.SaveChanges();
 
                 lblErrorTratamiento.Text = "PADECIMIENTO GUARDADO CON EXITO!";
-                lblErrorTratamiento.BackColor = Color.Green;
+                lblErrorTratamiento.ForeColor = Color.Green;
 
             }
         }
@@ -107,15 +108,13 @@ namespace Terapp.UI
 
             using (TerapiModel db = new TerapiModel()) 
             {
-                CONFIGURACION config = new CONFIGURACION();
+                CONFIGURACION config = db.CONFIGURACIONES.FirstOrDefault();
                 config.CantidadPacientes = Convert.ToInt16(txtPacientesSimultaneos.Text);
-                
-                db.CONFIGURACIONES.Add(config);
 
                 db.SaveChanges();
 
                 lblErrorPacientes.Text = "CONFIGURACION GUARDADA CON EXITO";
-                lblErrorPacientes.BackColor = Color.Green;
+                lblErrorPacientes.ForeColor = Color.Green;
 
             }
 

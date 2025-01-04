@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -29,21 +31,42 @@ namespace Terapp.UI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+            if (_paciente == null) 
+            {
+                lblError.Text = "NO HAS SELECCIONADO UN PACIENTE";
+                lblError.Visible = true;
+                lblError.ForeColor = Color.Red;
+                return;
+            }
             _fechaConsulta = FormatearHora();
 
             using (TerapiModel db = new TerapiModel()) 
-            {            
-                CONSULTA consulta = new CONSULTA();
-                consulta.FechaConsulta = _fechaConsulta;
-                consulta.PacienteID = _paciente.ID;
+            {
+                List<CONSULTA> c = db.CONSULTAS.Where(x => x.FechaConsulta == _fechaConsulta).ToList();
 
-                db.CONSULTAS.Add(consulta);
-                db.SaveChanges();
+                CONFIGURACION config = db.CONFIGURACIONES.FirstOrDefault();
 
-                lblError.Text = "CITA AGREGADA CON EXITO!";
-                lblError.Visible = true;
-                lblError.ForeColor = System.Drawing.Color.DarkGreen;
+                if (c.Count == config.CantidadPacientes)
+                {
+                    lblError.Text = "HORARIO OCUPADO";
+                    lblError.Visible = true;
+                    lblError.ForeColor = Color.Red;
+                    return;
+                }
+                else 
+                {
+                    CONSULTA consulta = new CONSULTA();
+                    consulta.FechaConsulta = _fechaConsulta;
+                    consulta.PacienteID = _paciente.ID;
 
+                    db.CONSULTAS.Add(consulta);
+                    db.SaveChanges();
+
+                    lblError.Text = "CITA AGREGADA CON EXITO!";
+                    lblError.Visible = true;
+                    lblError.ForeColor = System.Drawing.Color.DarkGreen;
+                }
             }
 
         }
