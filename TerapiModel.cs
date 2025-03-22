@@ -19,6 +19,7 @@ namespace Terapp.UI
         public virtual DbSet<PUNTO> PUNTOS { get; set; }
         public virtual DbSet<TIPO_TRATAMIENTO> TIPO_TRATAMIENTO { get; set; }
         public virtual DbSet<TRATAMIENTO> TRATAMIENTOS { get; set; }
+        public virtual DbSet<ADJUNTO> ADJUNTOS { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -40,5 +40,11 @@ namespace Terapp.UI
             frmConfiguracion frmConfiguracion = new frmConfiguracion();
             frmConfiguracion.Show();
         }
+
+        private void btnAgendaPacientes_Click(object sender, EventArgs e)
+        {
+            frmAgendaPacientes agenda = new frmAgendaPacientes();
+            agenda.Show();
+        }
     }
 }

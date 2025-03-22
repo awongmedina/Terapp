@@ -33,9 +33,8 @@
             // ucCalVacio
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Name = "ucCalVacio";
-            this.Size = new System.Drawing.Size(102, 88);
+            this.Size = new System.Drawing.Size(170, 80);
             this.ResumeLayout(false);
 
         }

@@ -9,6 +9,7 @@ namespace Terapp.UI
     {
         private CONSULTA consulta = new CONSULTA();
         private PACIENTE paciente = new PACIENTE();
+        int timeError = 0;
         private List<CONSULTA> consultas;
         public frmExpClinico()
         {
@@ -28,6 +29,8 @@ namespace Terapp.UI
             if (txtNombre.Text == "" || txtNombre.Text == null) 
             {
                 lblError.Text = "NO HAS INGRESADO UN NOMBRE";
+                lblError.Visible = true;
+                timerError.Start();
                 return;
             }
                 
@@ -39,10 +42,12 @@ namespace Terapp.UI
                 if (_paciente == null)
                 {
                     lblError.Text = "EL PACIENTE NO ESTA REGISTRADO";
+                    lblError.Visible = true;
+                    timerError.Start();
                 }
                 else 
-                {
-                    lblError.Text = "";
+                {                    
+                    lblError.Visible = false;
 
                     IQueryable<CONSULTA> _consultas = db.CONSULTAS.Where(x => x.PacienteID == _paciente.ID);
                     consultas = _consultas.ToList();
@@ -88,6 +93,27 @@ namespace Terapp.UI
                 this.Close();
                
             }
+        }
+
+        private void timerError_Tick(object sender, EventArgs e)
+        {
+            if (timeError < 20)
+            {
+                timeError++;
+            }
+            else 
+            {
+                timerError.Stop();
+                timeError = 0;
+                lblError.Visible = false;
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            lblError.Visible = false;
+            timeError = 0;
+            timerError.Stop();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAgregarCita));
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
+            this.timerError = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // dtpFecha
@@ -140,6 +142,7 @@
             this.txtPaciente.Name = "txtPaciente";
             this.txtPaciente.Size = new System.Drawing.Size(322, 26);
             this.txtPaciente.TabIndex = 9;
+            this.txtPaciente.TextChanged += new System.EventHandler(this.txtPaciente_TextChanged);
             // 
             // label4
             // 
@@ -164,13 +167,18 @@
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblError.Location = new System.Drawing.Point(192, 90);
+            this.lblError.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(164, 83);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(254, 21);
+            this.lblError.Size = new System.Drawing.Size(335, 28);
             this.lblError.TabIndex = 12;
             this.lblError.Text = "NO SE ENCONTRO EL PACIENTE";
             this.lblError.Visible = false;
+            // 
+            // timerError
+            // 
+            this.timerError.Tick += new System.EventHandler(this.timerError_Tick);
             // 
             // frmAgregarCita
             // 
@@ -215,5 +223,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Timer timerError;
     }
 }

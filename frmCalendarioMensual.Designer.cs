@@ -61,7 +61,7 @@
             this.flowLayoutPanel1.Controls.Add(this.lblHora);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(440, 52);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(544, 52);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lblFecha
@@ -85,7 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 147);
+            this.label1.Location = new System.Drawing.Point(67, 147);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 21);
             this.label1.TabIndex = 3;
@@ -94,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(142, 147);
+            this.label2.Location = new System.Drawing.Point(217, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 21);
             this.label2.TabIndex = 4;
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(245, 147);
+            this.label3.Location = new System.Drawing.Point(379, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 5;
@@ -112,7 +112,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(345, 147);
+            this.label4.Location = new System.Drawing.Point(537, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 21);
             this.label4.TabIndex = 6;
@@ -121,7 +121,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(468, 147);
+            this.label5.Location = new System.Drawing.Point(728, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 21);
             this.label5.TabIndex = 7;
@@ -130,7 +130,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(572, 147);
+            this.label6.Location = new System.Drawing.Point(911, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 21);
             this.label6.TabIndex = 8;
@@ -140,7 +140,7 @@
             // 
             this.lblMes.AutoSize = true;
             this.lblMes.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMes.Location = new System.Drawing.Point(220, 83);
+            this.lblMes.Location = new System.Drawing.Point(486, 83);
             this.lblMes.Name = "lblMes";
             this.lblMes.Size = new System.Drawing.Size(70, 34);
             this.lblMes.TabIndex = 10;
@@ -150,7 +150,7 @@
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.Location = new System.Drawing.Point(450, 83);
+            this.lblYear.Location = new System.Drawing.Point(896, 83);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(67, 34);
             this.lblYear.TabIndex = 11;
@@ -160,13 +160,13 @@
             // 
             this.flwCalendario.Location = new System.Drawing.Point(12, 171);
             this.flwCalendario.Name = "flwCalendario";
-            this.flwCalendario.Size = new System.Drawing.Size(760, 645);
+            this.flwCalendario.Size = new System.Drawing.Size(1260, 590);
             this.flwCalendario.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(677, 147);
+            this.label7.Location = new System.Drawing.Point(1098, 147);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 21);
             this.label7.TabIndex = 12;
@@ -187,7 +187,7 @@
             // 
             this.btnSigMes.BackgroundImage = global::Terapp.UI.Properties.Resources.flecha_izq;
             this.btnSigMes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSigMes.Location = new System.Drawing.Point(681, 92);
+            this.btnSigMes.Location = new System.Drawing.Point(1200, 92);
             this.btnSigMes.Name = "btnSigMes";
             this.btnSigMes.Size = new System.Drawing.Size(75, 47);
             this.btnSigMes.TabIndex = 13;
@@ -198,7 +198,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::Terapp.UI.Properties.Resources.Terapi;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(642, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1154, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 74);
             this.pictureBox1.TabIndex = 1;
@@ -209,7 +209,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(784, 881);
+            this.ClientSize = new System.Drawing.Size(1287, 793);
             this.Controls.Add(this.btnSigMes);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnMesAnterior);

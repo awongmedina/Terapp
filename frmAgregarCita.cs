@@ -15,6 +15,7 @@ namespace Terapp.UI
     {
         public PACIENTE _paciente;
         DateTime _fechaConsulta;
+        int timeError = 0;
         public frmAgregarCita()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace Terapp.UI
                 lblError.Text = "NO HAS SELECCIONADO UN PACIENTE";
                 lblError.Visible = true;
                 lblError.ForeColor = Color.Red;
+                timerError.Start();
                 return;
             }
             _fechaConsulta = FormatearHora();
@@ -50,6 +52,7 @@ namespace Terapp.UI
                 if (c.Count == config.CantidadPacientes)
                 {
                     lblError.Text = "HORARIO OCUPADO";
+                    timerError.Start();
                     lblError.Visible = true;
                     lblError.ForeColor = Color.Red;
                     return;
@@ -64,8 +67,9 @@ namespace Terapp.UI
                     db.SaveChanges();
 
                     lblError.Text = "CITA AGREGADA CON EXITO!";
+                    timerError.Start();
                     lblError.Visible = true;
-                    lblError.ForeColor = System.Drawing.Color.DarkGreen;
+                    lblError.ForeColor = Color.Green;
                 }
             }
 
@@ -103,6 +107,27 @@ namespace Terapp.UI
                     lblError.Visible = false;
                 }
                     
+            }
+        }
+
+        private void txtPaciente_TextChanged(object sender, EventArgs e)
+        {
+            lblError.Visible = false;
+            timerError.Stop();
+            lblError.Visible = false;
+        }
+
+        private void timerError_Tick(object sender, EventArgs e)
+        {
+            if (timeError < 20)
+            {
+                timeError++;
+            }
+            else 
+            {
+                timeError = 0;
+                lblError.Visible = false;
+                timerError.Stop();
             }
         }
     }

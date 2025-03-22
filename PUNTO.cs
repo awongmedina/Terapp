@@ -19,10 +19,8 @@ namespace Terapp.UI
 
         [Required]
         [StringLength(50000)]
-        public string Coordenadas { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string ColorRGB { get; set; }
+        public string Coordenadas { get; set; }       
+        
+        public int TratamientoID { get; set; }
     }
 }

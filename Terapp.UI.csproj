@@ -166,8 +166,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADJUNTO.cs" />
     <Compile Include="CONFIGURACION.cs" />
     <Compile Include="CONSULTA.cs" />
+    <Compile Include="frmAgendaPacientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgendaPacientes.Designer.cs">
+      <DependentUpon>frmAgendaPacientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCerrarConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCerrarConsulta.Designer.cs">
+      <DependentUpon>frmCerrarConsulta.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCostoCita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +244,12 @@
     <Compile Include="TIPO_TRATAMIENTO.cs" />
     <Compile Include="TRATAMIENTO.cs" />
     <Compile Include="TRATAMIENTOS_AGREGADOS.cs" />
+    <Compile Include="ucAdjunto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAdjunto.Designer.cs">
+      <DependentUpon>ucAdjunto.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucCalVacio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -252,11 +271,17 @@
     <EmbeddedResource Include="frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAgendaPacientes.resx">
+      <DependentUpon>frmAgendaPacientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarCita.resx">
       <DependentUpon>frmAgregarCita.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalendarioMensual.resx">
       <DependentUpon>frmCalendarioMensual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCerrarConsulta.resx">
+      <DependentUpon>frmCerrarConsulta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta.resx">
       <DependentUpon>frmConsulta.cs</DependentUpon>
@@ -286,6 +311,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucAdjunto.resx">
+      <DependentUpon>ucAdjunto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucCalVacio.resx">
       <DependentUpon>ucCalVacio.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,6 +397,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1.png" />
+    <None Include="Resources\2.png" />
+    <None Include="Resources\3.png" />
+    <None Include="Resources\4.png" />
+    <None Include="Resources\5.png" />
+    <None Include="Resources\6.png" />
+    <None Include="Resources\7.png" />
+    <None Include="Resources\8.png" />
+    <None Include="Resources\9.png" />
+    <None Include="Resources\10.png" />
+    <None Include="Resources\agenda pacientes.png" />
+    <None Include="Resources\cancelar-evento.png" />
+    <None Include="Resources\adjuntar.png" />
     <Content Include="Terapi.ico" />
     <Content Include="TerapiLocalDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

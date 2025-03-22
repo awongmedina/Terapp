@@ -38,7 +38,7 @@
             // 
             this.lblNombrePaciente.AutoSize = true;
             this.lblNombrePaciente.Font = new System.Drawing.Font("Franklin Gothic Book", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombrePaciente.Location = new System.Drawing.Point(79, 9);
+            this.lblNombrePaciente.Location = new System.Drawing.Point(111, 18);
             this.lblNombrePaciente.Name = "lblNombrePaciente";
             this.lblNombrePaciente.Size = new System.Drawing.Size(120, 18);
             this.lblNombrePaciente.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.lblHoraCita.AutoSize = true;
             this.lblHoraCita.Font = new System.Drawing.Font("Franklin Gothic Book", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHoraCita.Location = new System.Drawing.Point(79, 45);
+            this.lblHoraCita.Location = new System.Drawing.Point(133, 58);
             this.lblHoraCita.Name = "lblHoraCita";
             this.lblHoraCita.Size = new System.Drawing.Size(66, 18);
             this.lblHoraCita.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(-2, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(107, 88);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseEnter += new System.EventHandler(this.ucCitaPaciente_MouseEnter);
@@ -79,7 +79,7 @@
             this.Controls.Add(this.lblHoraCita);
             this.Controls.Add(this.lblNombrePaciente);
             this.Name = "ucCitaPaciente";
-            this.Size = new System.Drawing.Size(246, 72);
+            this.Size = new System.Drawing.Size(300, 100);
             this.MouseEnter += new System.EventHandler(this.ucCitaPaciente_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ucCitaPaciente_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -37,7 +37,7 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(127, 125);
+            this.btnAceptar.Location = new System.Drawing.Point(190, 169);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(90, 45);
             this.btnAceptar.TabIndex = 0;
@@ -48,7 +48,7 @@
             // txtCosto
             // 
             this.txtCosto.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCosto.Location = new System.Drawing.Point(107, 70);
+            this.txtCosto.Location = new System.Drawing.Point(163, 94);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(154, 26);
             this.txtCosto.TabIndex = 1;
@@ -57,18 +57,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(72, 26);
+            this.label1.Location = new System.Drawing.Point(50, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 21);
+            this.label1.Size = new System.Drawing.Size(354, 21);
             this.label1.TabIndex = 2;
-            this.label1.Text = "COSTO DE LA CONSULTA";
+            this.label1.Text = "DEFINIR EL COSTO DE LA CONSULTA ACTUAL";
             // 
             // frmCostoCita
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(353, 182);
+            this.ClientSize = new System.Drawing.Size(451, 280);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCosto);
             this.Controls.Add(this.btnAceptar);

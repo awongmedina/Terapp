@@ -40,6 +40,9 @@
             this.btnAgendaMensual = new System.Windows.Forms.Button();
             this.btnPacienteSinCita = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,7 +79,7 @@
             // 
             this.flwCitas.Location = new System.Drawing.Point(12, 140);
             this.flwCitas.Name = "flwCitas";
-            this.flwCitas.Size = new System.Drawing.Size(760, 729);
+            this.flwCitas.Size = new System.Drawing.Size(1252, 533);
             this.flwCitas.TabIndex = 8;
             // 
             // timer1
@@ -96,7 +99,7 @@
             // 
             this.btnAgregarCita.BackgroundImage = global::Terapp.UI.Properties.Resources.agregar_cita;
             this.btnAgregarCita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgregarCita.Location = new System.Drawing.Point(567, 89);
+            this.btnAgregarCita.Location = new System.Drawing.Point(988, 89);
             this.btnAgregarCita.Name = "btnAgregarCita";
             this.btnAgregarCita.Size = new System.Drawing.Size(75, 45);
             this.btnAgregarCita.TabIndex = 13;
@@ -107,7 +110,7 @@
             // 
             this.btnAgendaMensual.BackgroundImage = global::Terapp.UI.Properties.Resources.calendario;
             this.btnAgendaMensual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgendaMensual.Location = new System.Drawing.Point(362, 89);
+            this.btnAgendaMensual.Location = new System.Drawing.Point(481, 89);
             this.btnAgendaMensual.Name = "btnAgendaMensual";
             this.btnAgendaMensual.Size = new System.Drawing.Size(75, 45);
             this.btnAgendaMensual.TabIndex = 12;
@@ -118,7 +121,7 @@
             // 
             this.btnPacienteSinCita.BackgroundImage = global::Terapp.UI.Properties.Resources.paciente;
             this.btnPacienteSinCita.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPacienteSinCita.Location = new System.Drawing.Point(457, 89);
+            this.btnPacienteSinCita.Location = new System.Drawing.Point(765, 89);
             this.btnPacienteSinCita.Name = "btnPacienteSinCita";
             this.btnPacienteSinCita.Size = new System.Drawing.Size(75, 45);
             this.btnPacienteSinCita.TabIndex = 11;
@@ -129,18 +132,48 @@
             // 
             this.pictureBox1.BackgroundImage = global::Terapp.UI.Properties.Resources.Terapi;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(642, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1134, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 74);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(423, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(208, 21);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "ABRIR AGENDA MENSUAL";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(716, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(164, 21);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "ATENDER PACIENTE";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(962, 65);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(124, 21);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "AGENDAR CITA";
             // 
             // frmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(784, 881);
+            this.ClientSize = new System.Drawing.Size(1287, 687);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAgregarCita);
             this.Controls.Add(this.btnAgendaMensual);
             this.Controls.Add(this.btnPacienteSinCita);
@@ -176,5 +209,8 @@
         private System.Windows.Forms.Button btnPacienteSinCita;
         private System.Windows.Forms.Button btnAgendaMensual;
         private System.Windows.Forms.Button btnAgregarCita;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

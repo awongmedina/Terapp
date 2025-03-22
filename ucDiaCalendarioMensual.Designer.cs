@@ -37,7 +37,7 @@
             this.lblDiaDelMes.AutoSize = true;
             this.lblDiaDelMes.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblDiaDelMes.Font = new System.Drawing.Font("Franklin Gothic Book", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaDelMes.Location = new System.Drawing.Point(46, 0);
+            this.lblDiaDelMes.Location = new System.Drawing.Point(114, 0);
             this.lblDiaDelMes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDiaDelMes.Name = "lblDiaDelMes";
             this.lblDiaDelMes.Size = new System.Drawing.Size(54, 20);
@@ -48,7 +48,7 @@
             // 
             this.lblNumPacientes.AutoSize = true;
             this.lblNumPacientes.Font = new System.Drawing.Font("Franklin Gothic Book", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumPacientes.Location = new System.Drawing.Point(14, 51);
+            this.lblNumPacientes.Location = new System.Drawing.Point(49, 42);
             this.lblNumPacientes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNumPacientes.Name = "lblNumPacientes";
             this.lblNumPacientes.Size = new System.Drawing.Size(72, 25);
@@ -64,7 +64,7 @@
             this.Font = new System.Drawing.Font("Franklin Gothic Book", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ucDiaCalendarioMensual";
-            this.Size = new System.Drawing.Size(100, 88);
+            this.Size = new System.Drawing.Size(168, 80);
             this.ResumeLayout(false);
             this.PerformLayout();
 

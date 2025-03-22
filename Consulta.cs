@@ -9,6 +9,15 @@ namespace Terapp.UI
     [Table("CONSULTA")]
     public partial class CONSULTA
     {
+
+        public enum TipoMotivoCierre
+        {
+            PENDIENTE,
+            SEGUIMIENTO,
+            ABANDONO,
+            ALTA,
+            PAGADO
+        }
         public int ID { get; set; }
 
         public int PacienteID { get; set; }
@@ -25,5 +34,11 @@ namespace Terapp.UI
 
         [StringLength(500)]
         public string Valoracion { get; set; }
+
+        [StringLength(500)]
+        public string EstatusConsulta { get; set; }
+
+        [StringLength(500)]
+        public string MotivoCierre { get; set; }
     }
 }

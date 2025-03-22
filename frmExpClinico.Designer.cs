@@ -41,6 +41,7 @@
             this.btnBuscarExpediente = new System.Windows.Forms.Button();
             this.dgvConsultas = new System.Windows.Forms.DataGridView();
             this.lblError = new System.Windows.Forms.Label();
+            this.timerError = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultas)).BeginInit();
@@ -90,14 +91,15 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(228, 176);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(337, 26);
+            this.txtNombre.Size = new System.Drawing.Size(860, 26);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::Terapp.UI.Properties.Resources.Terapi;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(642, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(1152, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 74);
             this.pictureBox1.TabIndex = 3;
@@ -107,19 +109,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(252, 87);
+            this.label2.Location = new System.Drawing.Point(554, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 37);
+            this.label2.Size = new System.Drawing.Size(160, 37);
             this.label2.TabIndex = 4;
-            this.label2.Text = "HISTORIAL CLINICO";
+            this.label2.Text = "PACIENTE";
             // 
             // btnBuscarExpediente
             // 
             this.btnBuscarExpediente.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
             this.btnBuscarExpediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBuscarExpediente.Location = new System.Drawing.Point(611, 149);
+            this.btnBuscarExpediente.Location = new System.Drawing.Point(1141, 165);
             this.btnBuscarExpediente.Name = "btnBuscarExpediente";
-            this.btnBuscarExpediente.Size = new System.Drawing.Size(108, 77);
+            this.btnBuscarExpediente.Size = new System.Drawing.Size(67, 48);
             this.btnBuscarExpediente.TabIndex = 5;
             this.btnBuscarExpediente.UseVisualStyleBackColor = true;
             this.btnBuscarExpediente.Click += new System.EventHandler(this.btnBuscarExpediente_Click);
@@ -130,22 +132,26 @@
             this.dgvConsultas.AllowUserToDeleteRows = false;
             this.dgvConsultas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsultas.Location = new System.Drawing.Point(13, 283);
+            this.dgvConsultas.Location = new System.Drawing.Point(13, 229);
             this.dgvConsultas.Name = "dgvConsultas";
             this.dgvConsultas.ReadOnly = true;
-            this.dgvConsultas.Size = new System.Drawing.Size(759, 586);
+            this.dgvConsultas.Size = new System.Drawing.Size(1241, 460);
             this.dgvConsultas.TabIndex = 6;
             this.dgvConsultas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultas_CellClick);
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.Font = new System.Drawing.Font("Franklin Gothic Book", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(255, 205);
+            this.lblError.Location = new System.Drawing.Point(488, 92);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 21);
+            this.lblError.Size = new System.Drawing.Size(0, 28);
             this.lblError.TabIndex = 7;
+            // 
+            // timerError
+            // 
+            this.timerError.Tick += new System.EventHandler(this.timerError_Tick);
             // 
             // frmExpClinico
             // 
@@ -153,7 +159,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.ClientSize = new System.Drawing.Size(784, 881);
+            this.ClientSize = new System.Drawing.Size(1285, 761);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.dgvConsultas);
             this.Controls.Add(this.btnBuscarExpediente);
@@ -190,5 +196,6 @@
         private System.Windows.Forms.Button btnBuscarExpediente;
         private System.Windows.Forms.DataGridView dgvConsultas;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Timer timerError;
     }
 }
