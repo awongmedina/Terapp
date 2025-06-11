@@ -163,9 +163,29 @@ namespace Terapp.UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap actualizar {
+            get {
+                object obj = ResourceManager.GetObject("actualizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap adjuntar {
             get {
                 object obj = ResourceManager.GetObject("adjuntar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap adjuntar1 {
+            get {
+                object obj = ResourceManager.GetObject("adjuntar1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +336,16 @@ namespace Terapp.UI.Properties {
         internal static System.Drawing.Bitmap registrar_paciente {
             get {
                 object obj = ResourceManager.GetObject("registrar_paciente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SIN_IMAGEN {
+            get {
+                object obj = ResourceManager.GetObject("SIN-IMAGEN", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
