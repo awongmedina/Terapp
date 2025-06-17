@@ -231,6 +231,7 @@
             this.Name = "frmCalendarioMensual";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Terapi || CALENDARIO MENSUAL";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCalendarioMensual_FormClosed);
             this.Load += new System.EventHandler(this.frmCalendarioMensual_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();

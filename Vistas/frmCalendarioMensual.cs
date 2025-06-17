@@ -7,17 +7,20 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using Terapp.UI.Controladores.Controladores;
+using Terapp.UI.Controladores;
+using System.Collections.Generic;
 
 namespace Terapp.UI
 {
     public partial class frmCalendarioMensual : Form
     {
 
+
         DateTime hoy = DateTime.Now;
         int _mes = DateTime.Now.Month;
         int _year = DateTime.Now.Year;
-        int _dia = DateTime.Now.Day;
-        public IQueryable<CONSULTA> consultas;
+        IQueryable<CONSULTA> consultas;
         public frmCalendarioMensual()
         {
             InitializeComponent();
@@ -55,28 +58,26 @@ namespace Terapp.UI
             }
 
             for (int i = 1; i <= dias; i++)
-            {      
+            {
 
-                using (TerapiModel db = new TerapiModel()) 
+                using (var unitOfWork = new UnitOfWork(new TerapiModel()))
                 {
-                   
+                    var dbService = new TerapiService(unitOfWork);
+
+                    List<CONSULTA> _cons = new List<CONSULTA>();
+
                     DateTime d = new DateTime(yr, mes, i);
 
-                    var _cons = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
-                    
-                    if (_cons == null)
-                        return;
-                    
-                    IQueryable<CONSULTA> _consultas = _cons.AsQueryable();
+                    IQueryable<CONSULTA> _consultas = dbService.ObtenerConsultasPorDia(d).Where(x => x.EstatusConsulta == "ABIERTA").AsQueryable();
 
                     ucDiaCalendarioMensual ucCalendario = new ucDiaCalendarioMensual();
                     ucCalendario.Dias(i);
-                    ucCalendario.CantidadPacientes(_consultas.Count());
+                    ucCalendario.CantidadPacientesPorDia(_consultas.Count());
                     flwCalendario.Controls.Add(ucCalendario);
 
-                    ucCalendario.Click += new System.EventHandler(this.ucCalendario_Click);
-                    ucCalendario.MouseEnter += new System.EventHandler(this.ucCalendario_MouseEnter);
-                    ucCalendario.MouseLeave += new System.EventHandler(this.ucCalendario_MouseLeave);
+                    ucCalendario.Click += new EventHandler(this.ucCalendario_Click);
+                    ucCalendario.MouseEnter += new EventHandler(this.ucCalendario_MouseEnter);
+                    ucCalendario.MouseLeave += new EventHandler(this.ucCalendario_MouseLeave);
 
                 }
             }
@@ -111,18 +112,18 @@ namespace Terapp.UI
         {
             ucDiaCalendarioMensual obj = (ucDiaCalendarioMensual)sender;
             DateTime d = obj.ObtenerFecha(_mes, _year);
-            
-
-            using (TerapiModel db = new TerapiModel()) 
+            using (var unitOfWork = new UnitOfWork(new TerapiModel()))
             {
-               
-                consultas = db.CONSULTAS.Where(x => DbFunctions.TruncateTime(x.FechaConsulta) == DbFunctions.TruncateTime(d));
+                var dbService = new TerapiService(unitOfWork);
 
-                frmAgenda frmAgenda = new frmAgenda();
-                frmAgenda.consultas = consultas;
-                frmAgenda.Show();
-                this.Close();
-            }           
+                consultas = dbService.ObtenerConsultasPorDia(d).AsQueryable();
+            }
+
+            frmAgenda frmAgenda = new frmAgenda();
+            frmAgenda.consultas = consultas;
+            frmAgenda.agenda = true;
+            frmAgenda.Show();
+            this.Close();
         }
 
         private void ucCalendario_MouseEnter(object sender, EventArgs e)
@@ -136,6 +137,11 @@ namespace Terapp.UI
             ucDiaCalendarioMensual obj = (ucDiaCalendarioMensual)sender;
             obj.BackColor = Color.FromArgb(111, 166, 234);
 
+        }
+
+        private void frmCalendarioMensual_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new frmAgenda().Show();
         }
     }
 }

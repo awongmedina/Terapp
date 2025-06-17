@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Terapp.UI.Controladores.Controladores;
+using Terapp.UI.Controladores;
+using Terapp.UI.Properties;
 using Terapp.UI.Vistas;
 
 namespace Terapp.UI.Helpers
@@ -173,8 +176,33 @@ namespace Terapp.UI.Helpers
             return edad;
         }
 
+        public static void AsignarFondoCanvas(TIPO_TRATAMIENTO tipo, Panel canvas) 
+        {
+            if (tipo.NombreTratamiento == "TRATAMIENTO")
+            {
+                canvas.BackgroundImage = Resources.cuerpo_humano;
+                canvas.Invalidate();
+            }
 
+            if (tipo.NombreTratamiento == "EJERCICIO")
+            {
+                using (var unitOfWork = new UnitOfWork(new TerapiModel()))
+                {
+                    var dbService = new TerapiService(unitOfWork);
+                    canvas.BackgroundImage = Image.FromFile(dbService.ObtenerTipoTratamiento(tipo.TipoTratamiento).PathImagen);
+                    canvas.Invalidate();
+                }
+            }
+        }
 
+        public static void LimpiarControlesTratamiento(Control tabPage) 
+        {
+            foreach (Control control in tabPage.Controls)
+            {
+                if (control is TextBox textBox)
+                    textBox.Clear();
+            }
+        }
     }
 
 } 

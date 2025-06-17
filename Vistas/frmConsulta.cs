@@ -32,6 +32,7 @@ namespace Terapp.UI
         private List<TIPO_TRATAMIENTO> _ejercicios = new List<TIPO_TRATAMIENTO>();
         private List<Point> puntosTratamientoSeleccionado = new List<Point>();
         private List<Point> puntosMotivoConsulta = new List<Point>();
+        private List<TRATAMIENTO> _tratamientos = new List<TRATAMIENTO>();
 
 
 
@@ -175,9 +176,11 @@ namespace Terapp.UI
 
             trazosTratamiento.Add(trazosActualesTratamiento.TrimEnd(' ', ';'));
 
+            trazosActualesTratamiento = "";
+
         }
 
-        // Detecta cuando se deja de presionar el boton del mouse para dejar de dibujar en el canvas VALORACION
+      
 
         
         // Detecta cuando se deja de presionar el boton del mouse para dejar de dibujar en el canvas TRATAMIENTO
@@ -188,6 +191,8 @@ namespace Terapp.UI
             motivoCursorY = -1;
 
             trazosMotivoConsulta.Add(trazosActualesMotivo.TrimEnd(' ', ';'));
+
+            trazosActualesMotivo = "";
         }
 
 
@@ -354,10 +359,12 @@ namespace Terapp.UI
 
                     new frmMensaje(mensaje, true).ShowDialog();
                     trazosActualesTratamiento = "";
+                    trazosTratamiento.Clear();
                 }
 
                 RefrescarDGVTratamientos();
                 canvasTratamiento.Invalidate();
+                UIHelper.LimpiarControlesTratamiento(tabTratamiento);
             }
             catch (Exception ex)
             {
@@ -432,7 +439,9 @@ namespace Terapp.UI
                 return;
             }
 
-            frmCostoCita costo = new frmCostoCita(_paciente, _consulta);
+            
+
+            frmCostoCita costo = new frmCostoCita(_paciente, _consulta, _tratamientos);
             costo.ShowDialog();
         }
 
@@ -465,9 +474,9 @@ namespace Terapp.UI
         {
             try
             {
-                if (_paciente == null && _consulta == null)
+                if (_paciente == null || _consulta == null)
                 {
-                    frmMensaje confirmMsg = new frmMensaje("LA INFORMACION DEL PACIENTE Y LA CONSULTA NO HAN SIDO GUARDADOS, DESEAS GUARDARLA AHORA? SI NO SE GUARDA, PUEDE OCASIONAR ERRORES MAS ADELANTE", false);
+                    frmMensaje confirmMsg = new frmMensaje("LA INFORMACION DEL PACIENTE Y/O LA CONSULTA NO HAN SIDO GUARDADOS, DESEAS GUARDARLA AHORA? SI NO SE GUARDA, PUEDE OCASIONAR ERRORES MAS ADELANTE", false);
                     confirmMsg.ShowDialog();
 
                     if (confirmMsg.Confirmado)
@@ -547,6 +556,7 @@ namespace Terapp.UI
 
                                 new frmMensaje("ARCHIVO AGREGADO CON EXITO!", true).ShowDialog();
                                 txtAdjunto.Text = archivoDestino;
+                                CargarAdjuntosConsulta(_consulta.ID);
 
                                
                             }
@@ -713,6 +723,8 @@ namespace Terapp.UI
                         .Select(t => new { t.ID, t.TipoTratamiento, t.Tiempo, t.Comentarios, t.NombreTratamiento })
                         .ToList();
 
+                    _tratamientos = dbService.ObtenerTratamientosPorConsulta(consultaId);
+
                     if (this.IsHandleCreated) 
                     {
                         Invoke(new Action(() =>
@@ -731,39 +743,26 @@ namespace Terapp.UI
         {
             if (dgvTratamientos.SelectedRows.Count > 0)
             {
-                var filaSeleccionada = dgvTratamientos.SelectedRows[0];
-                int consultaId = _consulta.ID;
-                string tipoTratamiento = filaSeleccionada.Cells["TipoTratamiento"].Value.ToString();
-                int tratamientoId = (int)filaSeleccionada.Cells["ID"].Value;
-                string nombreTratamiento = filaSeleccionada.Cells["NombreTratamiento"].Value.ToString();
-                string pathImagen = "";
-
                 canvasTratamiento.Refresh();
-                canvasTratamiento.BackgroundImage.Dispose(); // Libera la imagen anterior si existe
+                canvasTratamiento.BackgroundImage.Dispose(); 
 
-                if (nombreTratamiento == "EJERCICIO")
+                if (dgvTratamientos.SelectedRows[0].Cells["NombreTratamiento"].Value.ToString() == "EJERCICIO")
                 {
                     using (var unitOfWork = new UnitOfWork(new TerapiModel()))
                     {
                         var dbService = new TerapiService(unitOfWork);
-
-                        pathImagen = dbService.ObtenerTipoTratamiento(tipoTratamiento).PathImagen;
+                        canvasTratamiento.BackgroundImage = Image.FromFile(dbService.ObtenerTipoTratamiento(dgvTratamientos.SelectedRows[0].Cells["TipoTratamiento"].Value.ToString()).PathImagen);
                     }
-
-                    canvasTratamiento.BackgroundImage = Image.FromFile(pathImagen);
-                    
                 }
                 else
                 {
-
                     canvasTratamiento.BackgroundImage = Resources.cuerpo_humano;
-                    CargarTrazosPorTratamiento(consultaId, tratamientoId);
                 }
 
                 canvasTratamiento.Invalidate();
+                canvasTratamiento.Update();
 
-
-
+                CargarTrazosPorTratamiento(_consulta.ID, (int)dgvTratamientos.SelectedRows[0].Cells["ID"].Value);
             }
     
         }
@@ -786,6 +785,15 @@ namespace Terapp.UI
 
 
         #endregion
+
+        private void cboTratamientos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTratamientos.SelectedItem == null) return;
+
+            var tipoTratamientoSeleccionado = (TIPO_TRATAMIENTO)cboTratamientos.SelectedItem;
+
+            UIHelper.AsignarFondoCanvas(tipoTratamientoSeleccionado, canvasTratamiento);           
+        }
     }
 
 }

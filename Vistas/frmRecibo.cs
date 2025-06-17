@@ -9,6 +9,8 @@ using System.Drawing.Imaging;
 using System.Drawing;
 using System.IO;
 using System.Drawing.Printing;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Terapp.UI
 {
@@ -17,18 +19,35 @@ namespace Terapp.UI
         public frmRecibo()
         {
             InitializeComponent();
+            
         }
 
-        public frmRecibo(string nombre, int expediente, string motivo, string valoracion, DateTime fecha, string costoCita)
+        public frmRecibo(PACIENTE pac, CONSULTA cons, List<TRATAMIENTO> trats, string costoConsulta)
         {
             InitializeComponent();
 
-            lblExpediente.Text = expediente.ToString();
-            lblFecha.Text = fecha.ToShortDateString();
-            lblNombre.Text = nombre;
-            lblMotivoConsulta.Text = motivo;
+            lblValoracion.AutoSize = true;
+            lblValoracion.MaximumSize = new Size(699, 225);
+
+            lblMotivoConsulta.AutoSize = true;
+            lblMotivoConsulta.MaximumSize = new Size(699, 225);
+
+            var sb = new StringBuilder();
+
+            foreach (var tratamiento in trats)
+            {
+                sb.Append($"{tratamiento.TipoTratamiento} , {tratamiento.Tiempo} minutos;     ");
+            }
+
+            string valoracion = sb.ToString();
+
+
+            lblExpediente.Text = pac.ID.ToString();
+            lblFecha.Text = cons.FechaConsulta.ToShortDateString();
+            lblNombre.Text = pac.Nombre;
+            lblMotivoConsulta.Text = cons.MotivoConsulta;
             lblValoracion.Text = valoracion;
-            lblTotal.Text = "$" + costoCita.ToString();
+            lblTotal.Text = "$" + costoConsulta.ToString();
         }
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)

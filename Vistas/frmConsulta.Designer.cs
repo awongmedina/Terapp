@@ -30,46 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta));
             this.tabAdjunto = new System.Windows.Forms.TabPage();
-            this.flwAdjuntos = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
+            this.flwAdjuntos = new System.Windows.Forms.FlowLayoutPanel();
             this.tabTratamiento = new System.Windows.Forms.TabPage();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtTiempoTratamiento = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtComentariosTratamiento = new System.Windows.Forms.TextBox();
-            this.dgvTratamientos = new System.Windows.Forms.DataGridView();
-            this.cboTratamientos = new System.Windows.Forms.ComboBox();
             this.lblErrorTiempo = new System.Windows.Forms.Label();
+            this.cboTratamientos = new System.Windows.Forms.ComboBox();
+            this.dgvTratamientos = new System.Windows.Forms.DataGridView();
+            this.txtComentariosTratamiento = new System.Windows.Forms.TextBox();
+            this.txtTiempoTratamiento = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnGuardarTratamiento = new System.Windows.Forms.Button();
+            this.canvasTratamiento = new System.Windows.Forms.Panel();
             this.tabMotivoConsulta = new System.Windows.Forms.TabPage();
-            this.flwEscaladolor = new System.Windows.Forms.FlowLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.txtValoracion = new System.Windows.Forms.TextBox();
             this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtValoracion = new System.Windows.Forms.TextBox();
-            this.tabDatosPaciente = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtEdad = new System.Windows.Forms.TextBox();
-            this.txtNombrePaciente = new System.Windows.Forms.TextBox();
-            this.txtOcupacion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblExpediente = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAdjunto = new System.Windows.Forms.TextBox();
-            this.btnAdjuntar = new System.Windows.Forms.Button();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.btnCerrarConsulta = new System.Windows.Forms.Button();
-            this.btnGenerarPDF = new System.Windows.Forms.Button();
-            this.btnAgendarConsulta = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.flwEscaladolor = new System.Windows.Forms.FlowLayoutPanel();
             this.escala1 = new System.Windows.Forms.PictureBox();
             this.escala2 = new System.Windows.Forms.PictureBox();
             this.escala3 = new System.Windows.Forms.PictureBox();
@@ -85,16 +65,33 @@
             this.btnRecibo2 = new System.Windows.Forms.Button();
             this.btnGuardar2 = new System.Windows.Forms.Button();
             this.canvasMotivoConsulta = new System.Windows.Forms.Panel();
-            this.btnGuardarTratamiento = new System.Windows.Forms.Button();
-            this.canvasTratamiento = new System.Windows.Forms.Panel();
+            this.tabDatosPaciente = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAdjuntar = new System.Windows.Forms.Button();
+            this.txtAdjunto = new System.Windows.Forms.TextBox();
+            this.btnCerrarConsulta = new System.Windows.Forms.Button();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
+            this.btnAgendarConsulta = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.lblExpediente = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtOcupacion = new System.Windows.Forms.TextBox();
+            this.txtNombrePaciente = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabAdjunto.SuspendLayout();
             this.tabTratamiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTratamientos)).BeginInit();
             this.tabMotivoConsulta.SuspendLayout();
             this.flwEscaladolor.SuspendLayout();
-            this.tabDatosPaciente.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.escala1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala3)).BeginInit();
@@ -105,6 +102,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.escala8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala10)).BeginInit();
+            this.tabDatosPaciente.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabAdjunto
@@ -119,13 +119,6 @@
             this.tabAdjunto.TabIndex = 4;
             this.tabAdjunto.Text = "ADJUNTOS";
             // 
-            // flwAdjuntos
-            // 
-            this.flwAdjuntos.Location = new System.Drawing.Point(8, 96);
-            this.flwAdjuntos.Name = "flwAdjuntos";
-            this.flwAdjuntos.Size = new System.Drawing.Size(1236, 613);
-            this.flwAdjuntos.TabIndex = 0;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -135,6 +128,13 @@
             this.label10.Size = new System.Drawing.Size(449, 30);
             this.label10.TabIndex = 1;
             this.label10.Text = "ARCHIVOS ADJUNTOS DE LA CONSULTA";
+            // 
+            // flwAdjuntos
+            // 
+            this.flwAdjuntos.Location = new System.Drawing.Point(8, 96);
+            this.flwAdjuntos.Name = "flwAdjuntos";
+            this.flwAdjuntos.Size = new System.Drawing.Size(1236, 613);
+            this.flwAdjuntos.TabIndex = 0;
             // 
             // tabTratamiento
             // 
@@ -156,48 +156,24 @@
             this.tabTratamiento.TabIndex = 3;
             this.tabTratamiento.Text = "TRATAMIENTO";
             // 
-            // label11
+            // lblErrorTiempo
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1150, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 21);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "TIEMPO";
+            this.lblErrorTiempo.AutoSize = true;
+            this.lblErrorTiempo.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorTiempo.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTiempo.Location = new System.Drawing.Point(570, 98);
+            this.lblErrorTiempo.Name = "lblErrorTiempo";
+            this.lblErrorTiempo.Size = new System.Drawing.Size(0, 16);
+            this.lblErrorTiempo.TabIndex = 10;
             // 
-            // txtTiempoTratamiento
+            // cboTratamientos
             // 
-            this.txtTiempoTratamiento.Location = new System.Drawing.Point(1112, 78);
-            this.txtTiempoTratamiento.Name = "txtTiempoTratamiento";
-            this.txtTiempoTratamiento.Size = new System.Drawing.Size(139, 26);
-            this.txtTiempoTratamiento.TabIndex = 2;
-            this.txtTiempoTratamiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTiempoTratamiento_KeyPress);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1122, 143);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 21);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "TRATAMIENTO";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1122, 240);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(123, 21);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "COMENTARIOS";
-            // 
-            // txtComentariosTratamiento
-            // 
-            this.txtComentariosTratamiento.Location = new System.Drawing.Point(1112, 278);
-            this.txtComentariosTratamiento.Multiline = true;
-            this.txtComentariosTratamiento.Name = "txtComentariosTratamiento";
-            this.txtComentariosTratamiento.Size = new System.Drawing.Size(144, 144);
-            this.txtComentariosTratamiento.TabIndex = 4;
+            this.cboTratamientos.FormattingEnabled = true;
+            this.cboTratamientos.Location = new System.Drawing.Point(1112, 178);
+            this.cboTratamientos.Name = "cboTratamientos";
+            this.cboTratamientos.Size = new System.Drawing.Size(144, 29);
+            this.cboTratamientos.TabIndex = 3;
+            this.cboTratamientos.SelectedIndexChanged += new System.EventHandler(this.cboTratamientos_SelectedIndexChanged);
             // 
             // dgvTratamientos
             // 
@@ -209,23 +185,71 @@
             this.dgvTratamientos.TabIndex = 1;
             this.dgvTratamientos.SelectionChanged += new System.EventHandler(this.dgvTratamientos_SelectionChanged);
             // 
-            // cboTratamientos
+            // txtComentariosTratamiento
             // 
-            this.cboTratamientos.FormattingEnabled = true;
-            this.cboTratamientos.Location = new System.Drawing.Point(1112, 178);
-            this.cboTratamientos.Name = "cboTratamientos";
-            this.cboTratamientos.Size = new System.Drawing.Size(144, 29);
-            this.cboTratamientos.TabIndex = 3;
+            this.txtComentariosTratamiento.Location = new System.Drawing.Point(1112, 278);
+            this.txtComentariosTratamiento.Multiline = true;
+            this.txtComentariosTratamiento.Name = "txtComentariosTratamiento";
+            this.txtComentariosTratamiento.Size = new System.Drawing.Size(144, 144);
+            this.txtComentariosTratamiento.TabIndex = 4;
             // 
-            // lblErrorTiempo
+            // txtTiempoTratamiento
             // 
-            this.lblErrorTiempo.AutoSize = true;
-            this.lblErrorTiempo.Font = new System.Drawing.Font("Franklin Gothic Book", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorTiempo.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTiempo.Location = new System.Drawing.Point(570, 98);
-            this.lblErrorTiempo.Name = "lblErrorTiempo";
-            this.lblErrorTiempo.Size = new System.Drawing.Size(0, 16);
-            this.lblErrorTiempo.TabIndex = 10;
+            this.txtTiempoTratamiento.Location = new System.Drawing.Point(1112, 78);
+            this.txtTiempoTratamiento.Name = "txtTiempoTratamiento";
+            this.txtTiempoTratamiento.Size = new System.Drawing.Size(139, 26);
+            this.txtTiempoTratamiento.TabIndex = 2;
+            this.txtTiempoTratamiento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTiempoTratamiento_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1122, 240);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 21);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "COMENTARIOS";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1122, 143);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 21);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "TRATAMIENTO";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(1150, 41);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 21);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "TIEMPO";
+            // 
+            // btnGuardarTratamiento
+            // 
+            this.btnGuardarTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.anadir;
+            this.btnGuardarTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnGuardarTratamiento.Location = new System.Drawing.Point(1143, 454);
+            this.btnGuardarTratamiento.Name = "btnGuardarTratamiento";
+            this.btnGuardarTratamiento.Size = new System.Drawing.Size(99, 80);
+            this.btnGuardarTratamiento.TabIndex = 5;
+            this.btnGuardarTratamiento.UseVisualStyleBackColor = true;
+            this.btnGuardarTratamiento.Click += new System.EventHandler(this.btnGuardarTratamiento_Click);
+            // 
+            // canvasTratamiento
+            // 
+            this.canvasTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.cuerpo_humano;
+            this.canvasTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.canvasTratamiento.Location = new System.Drawing.Point(3, 41);
+            this.canvasTratamiento.Name = "canvasTratamiento";
+            this.canvasTratamiento.Size = new System.Drawing.Size(542, 647);
+            this.canvasTratamiento.TabIndex = 0;
+            this.canvasTratamiento.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseDown);
+            this.canvasTratamiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseMove);
+            this.canvasTratamiento.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseUp);
             // 
             // tabMotivoConsulta
             // 
@@ -249,40 +273,13 @@
             this.tabMotivoConsulta.TabIndex = 1;
             this.tabMotivoConsulta.Text = "MOTIVO DE CONSULTA";
             // 
-            // flwEscaladolor
+            // txtValoracion
             // 
-            this.flwEscaladolor.Controls.Add(this.escala1);
-            this.flwEscaladolor.Controls.Add(this.escala2);
-            this.flwEscaladolor.Controls.Add(this.escala3);
-            this.flwEscaladolor.Controls.Add(this.escala4);
-            this.flwEscaladolor.Controls.Add(this.escala5);
-            this.flwEscaladolor.Controls.Add(this.escala6);
-            this.flwEscaladolor.Controls.Add(this.escala7);
-            this.flwEscaladolor.Controls.Add(this.escala8);
-            this.flwEscaladolor.Controls.Add(this.escala9);
-            this.flwEscaladolor.Controls.Add(this.escala10);
-            this.flwEscaladolor.Location = new System.Drawing.Point(811, 289);
-            this.flwEscaladolor.Name = "flwEscaladolor";
-            this.flwEscaladolor.Size = new System.Drawing.Size(445, 39);
-            this.flwEscaladolor.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(938, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 21);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "MOTIVO DE LA CONSULTA";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(954, 258);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(153, 21);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "ESCALA DE DOLOR";
+            this.txtValoracion.Location = new System.Drawing.Point(806, 169);
+            this.txtValoracion.Multiline = true;
+            this.txtValoracion.Name = "txtValoracion";
+            this.txtValoracion.Size = new System.Drawing.Size(450, 77);
+            this.txtValoracion.TabIndex = 1;
             // 
             // txtMotivoConsulta
             // 
@@ -301,254 +298,40 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "VALORACION";
             // 
-            // txtValoracion
+            // label9
             // 
-            this.txtValoracion.Location = new System.Drawing.Point(806, 169);
-            this.txtValoracion.Multiline = true;
-            this.txtValoracion.Name = "txtValoracion";
-            this.txtValoracion.Size = new System.Drawing.Size(450, 77);
-            this.txtValoracion.TabIndex = 1;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(954, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(153, 21);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "ESCALA DE DOLOR";
             // 
-            // tabDatosPaciente
+            // label8
             // 
-            this.tabDatosPaciente.AutoScroll = true;
-            this.tabDatosPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
-            this.tabDatosPaciente.Controls.Add(this.panel1);
-            this.tabDatosPaciente.Location = new System.Drawing.Point(4, 30);
-            this.tabDatosPaciente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDatosPaciente.Name = "tabDatosPaciente";
-            this.tabDatosPaciente.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDatosPaciente.Size = new System.Drawing.Size(1264, 717);
-            this.tabDatosPaciente.TabIndex = 0;
-            this.tabDatosPaciente.Text = "DATOS GENERALES";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(938, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(207, 21);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "MOTIVO DE LA CONSULTA";
             // 
-            // panel1
+            // flwEscaladolor
             // 
-            this.panel1.Controls.Add(this.btnAdjuntar);
-            this.panel1.Controls.Add(this.txtAdjunto);
-            this.panel1.Controls.Add(this.btnCerrarConsulta);
-            this.panel1.Controls.Add(this.btnGenerarPDF);
-            this.panel1.Controls.Add(this.btnAgendarConsulta);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.btnBuscar);
-            this.panel1.Controls.Add(this.lblExpediente);
-            this.panel1.Controls.Add(this.btnGuardar);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtTelefono);
-            this.panel1.Controls.Add(this.dtpFechaNacimiento);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtOcupacion);
-            this.panel1.Controls.Add(this.txtNombrePaciente);
-            this.panel1.Controls.Add(this.txtEdad);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1218, 698);
-            this.panel1.TabIndex = 12;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 241);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 34);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "EDAD";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 167);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(205, 34);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "FECHA DE NAC.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 310);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 34);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "OCUPACION";
-            // 
-            // txtEdad
-            // 
-            this.txtEdad.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEdad.Location = new System.Drawing.Point(349, 238);
-            this.txtEdad.Name = "txtEdad";
-            this.txtEdad.Size = new System.Drawing.Size(800, 38);
-            this.txtEdad.TabIndex = 4;
-            // 
-            // txtNombrePaciente
-            // 
-            this.txtNombrePaciente.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombrePaciente.Location = new System.Drawing.Point(349, 97);
-            this.txtNombrePaciente.Name = "txtNombrePaciente";
-            this.txtNombrePaciente.Size = new System.Drawing.Size(543, 38);
-            this.txtNombrePaciente.TabIndex = 1;
-            // 
-            // txtOcupacion
-            // 
-            this.txtOcupacion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOcupacion.Location = new System.Drawing.Point(349, 307);
-            this.txtOcupacion.Name = "txtOcupacion";
-            this.txtOcupacion.Size = new System.Drawing.Size(800, 38);
-            this.txtOcupacion.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 377);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 34);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "TELEFONO";
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(349, 167);
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(800, 38);
-            this.dtpFechaNacimiento.TabIndex = 3;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(349, 377);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(800, 38);
-            this.txtTelefono.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(30, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 34);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "NOMBRE";
-            // 
-            // lblExpediente
-            // 
-            this.lblExpediente.AutoSize = true;
-            this.lblExpediente.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpediente.Location = new System.Drawing.Point(467, 16);
-            this.lblExpediente.Name = "lblExpediente";
-            this.lblExpediente.Size = new System.Drawing.Size(0, 37);
-            this.lblExpediente.TabIndex = 21;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(389, 37);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "NUMERO DE EXPEDIENTE";
-            // 
-            // txtAdjunto
-            // 
-            this.txtAdjunto.Enabled = false;
-            this.txtAdjunto.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdjunto.Location = new System.Drawing.Point(349, 452);
-            this.txtAdjunto.Name = "txtAdjunto";
-            this.txtAdjunto.Size = new System.Drawing.Size(800, 38);
-            this.txtAdjunto.TabIndex = 19;
-            this.txtAdjunto.Text = "No hay archivos adjuntos";
-            this.txtAdjunto.DoubleClick += new System.EventHandler(this.btnAdjuntar_Click);
-            // 
-            // btnAdjuntar
-            // 
-            this.btnAdjuntar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdjuntar.Location = new System.Drawing.Point(36, 452);
-            this.btnAdjuntar.Name = "btnAdjuntar";
-            this.btnAdjuntar.Size = new System.Drawing.Size(188, 40);
-            this.btnAdjuntar.TabIndex = 7;
-            this.btnAdjuntar.Text = "ADJUNTAR ARCHIVO";
-            this.btnAdjuntar.UseVisualStyleBackColor = true;
-            this.btnAdjuntar.Click += new System.EventHandler(this.btnAdjuntar_Click);
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabDatosPaciente);
-            this.tabControl.Controls.Add(this.tabMotivoConsulta);
-            this.tabControl.Controls.Add(this.tabTratamiento);
-            this.tabControl.Controls.Add(this.tabAdjunto);
-            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 0);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1272, 751);
-            this.tabControl.TabIndex = 0;
-            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
-            // 
-            // btnCerrarConsulta
-            // 
-            this.btnCerrarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.cancelar_evento;
-            this.btnCerrarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCerrarConsulta.Location = new System.Drawing.Point(716, 610);
-            this.btnCerrarConsulta.Name = "btnCerrarConsulta";
-            this.btnCerrarConsulta.Size = new System.Drawing.Size(128, 85);
-            this.btnCerrarConsulta.TabIndex = 10;
-            this.btnCerrarConsulta.UseVisualStyleBackColor = true;
-            this.btnCerrarConsulta.Click += new System.EventHandler(this.btnCerrarConsulta_Click);
-            // 
-            // btnGenerarPDF
-            // 
-            this.btnGenerarPDF.BackgroundImage = global::Terapp.UI.Properties.Resources.pdf;
-            this.btnGenerarPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGenerarPDF.Location = new System.Drawing.Point(1059, 613);
-            this.btnGenerarPDF.Name = "btnGenerarPDF";
-            this.btnGenerarPDF.Size = new System.Drawing.Size(128, 85);
-            this.btnGenerarPDF.TabIndex = 11;
-            this.btnGenerarPDF.UseVisualStyleBackColor = true;
-            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
-            // 
-            // btnAgendarConsulta
-            // 
-            this.btnAgendarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.agregar_cita;
-            this.btnAgendarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgendarConsulta.Location = new System.Drawing.Point(372, 613);
-            this.btnAgendarConsulta.Name = "btnAgendarConsulta";
-            this.btnAgendarConsulta.Size = new System.Drawing.Size(128, 85);
-            this.btnAgendarConsulta.TabIndex = 9;
-            this.btnAgendarConsulta.UseVisualStyleBackColor = true;
-            this.btnAgendarConsulta.Click += new System.EventHandler(this.btnAgendarConsulta_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscar.Location = new System.Drawing.Point(1002, 84);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(114, 66);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardar.Location = new System.Drawing.Point(36, 610);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(128, 85);
-            this.btnGuardar.TabIndex = 8;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.flwEscaladolor.Controls.Add(this.escala1);
+            this.flwEscaladolor.Controls.Add(this.escala2);
+            this.flwEscaladolor.Controls.Add(this.escala3);
+            this.flwEscaladolor.Controls.Add(this.escala4);
+            this.flwEscaladolor.Controls.Add(this.escala5);
+            this.flwEscaladolor.Controls.Add(this.escala6);
+            this.flwEscaladolor.Controls.Add(this.escala7);
+            this.flwEscaladolor.Controls.Add(this.escala8);
+            this.flwEscaladolor.Controls.Add(this.escala9);
+            this.flwEscaladolor.Controls.Add(this.escala10);
+            this.flwEscaladolor.Location = new System.Drawing.Point(811, 289);
+            this.flwEscaladolor.Name = "flwEscaladolor";
+            this.flwEscaladolor.Size = new System.Drawing.Size(445, 39);
+            this.flwEscaladolor.TabIndex = 2;
             // 
             // escala1
             // 
@@ -726,28 +509,246 @@
             this.canvasMotivoConsulta.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasMotivoConsulta_MouseMove);
             this.canvasMotivoConsulta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasMotivoConsulta_MouseUp);
             // 
-            // btnGuardarTratamiento
+            // tabDatosPaciente
             // 
-            this.btnGuardarTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.anadir;
-            this.btnGuardarTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnGuardarTratamiento.Location = new System.Drawing.Point(1143, 454);
-            this.btnGuardarTratamiento.Name = "btnGuardarTratamiento";
-            this.btnGuardarTratamiento.Size = new System.Drawing.Size(99, 80);
-            this.btnGuardarTratamiento.TabIndex = 5;
-            this.btnGuardarTratamiento.UseVisualStyleBackColor = true;
-            this.btnGuardarTratamiento.Click += new System.EventHandler(this.btnGuardarTratamiento_Click);
+            this.tabDatosPaciente.AutoScroll = true;
+            this.tabDatosPaciente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(166)))), ((int)(((byte)(234)))));
+            this.tabDatosPaciente.Controls.Add(this.panel1);
+            this.tabDatosPaciente.Location = new System.Drawing.Point(4, 30);
+            this.tabDatosPaciente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabDatosPaciente.Name = "tabDatosPaciente";
+            this.tabDatosPaciente.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabDatosPaciente.Size = new System.Drawing.Size(1264, 717);
+            this.tabDatosPaciente.TabIndex = 0;
+            this.tabDatosPaciente.Text = "DATOS GENERALES";
             // 
-            // canvasTratamiento
+            // panel1
             // 
-            this.canvasTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.cuerpo_humano;
-            this.canvasTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.canvasTratamiento.Location = new System.Drawing.Point(3, 41);
-            this.canvasTratamiento.Name = "canvasTratamiento";
-            this.canvasTratamiento.Size = new System.Drawing.Size(542, 647);
-            this.canvasTratamiento.TabIndex = 0;
-            this.canvasTratamiento.MouseDown += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseDown);
-            this.canvasTratamiento.MouseMove += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseMove);
-            this.canvasTratamiento.MouseUp += new System.Windows.Forms.MouseEventHandler(this.canvasTratamiento_MouseUp);
+            this.panel1.Controls.Add(this.btnAdjuntar);
+            this.panel1.Controls.Add(this.txtAdjunto);
+            this.panel1.Controls.Add(this.btnCerrarConsulta);
+            this.panel1.Controls.Add(this.btnGenerarPDF);
+            this.panel1.Controls.Add(this.btnAgendarConsulta);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.btnBuscar);
+            this.panel1.Controls.Add(this.lblExpediente);
+            this.panel1.Controls.Add(this.btnGuardar);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txtTelefono);
+            this.panel1.Controls.Add(this.dtpFechaNacimiento);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtOcupacion);
+            this.panel1.Controls.Add(this.txtNombrePaciente);
+            this.panel1.Controls.Add(this.txtEdad);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1218, 698);
+            this.panel1.TabIndex = 12;
+            // 
+            // btnAdjuntar
+            // 
+            this.btnAdjuntar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdjuntar.Location = new System.Drawing.Point(36, 452);
+            this.btnAdjuntar.Name = "btnAdjuntar";
+            this.btnAdjuntar.Size = new System.Drawing.Size(188, 40);
+            this.btnAdjuntar.TabIndex = 7;
+            this.btnAdjuntar.Text = "ADJUNTAR ARCHIVO";
+            this.btnAdjuntar.UseVisualStyleBackColor = true;
+            this.btnAdjuntar.Click += new System.EventHandler(this.btnAdjuntar_Click);
+            // 
+            // txtAdjunto
+            // 
+            this.txtAdjunto.Enabled = false;
+            this.txtAdjunto.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdjunto.Location = new System.Drawing.Point(349, 452);
+            this.txtAdjunto.Name = "txtAdjunto";
+            this.txtAdjunto.Size = new System.Drawing.Size(800, 38);
+            this.txtAdjunto.TabIndex = 19;
+            this.txtAdjunto.Text = "No hay archivos adjuntos";
+            this.txtAdjunto.DoubleClick += new System.EventHandler(this.btnAdjuntar_Click);
+            // 
+            // btnCerrarConsulta
+            // 
+            this.btnCerrarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.cancelar_evento;
+            this.btnCerrarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCerrarConsulta.Location = new System.Drawing.Point(716, 610);
+            this.btnCerrarConsulta.Name = "btnCerrarConsulta";
+            this.btnCerrarConsulta.Size = new System.Drawing.Size(128, 85);
+            this.btnCerrarConsulta.TabIndex = 10;
+            this.btnCerrarConsulta.UseVisualStyleBackColor = true;
+            this.btnCerrarConsulta.Click += new System.EventHandler(this.btnCerrarConsulta_Click);
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.BackgroundImage = global::Terapp.UI.Properties.Resources.pdf;
+            this.btnGenerarPDF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGenerarPDF.Location = new System.Drawing.Point(1059, 613);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(128, 85);
+            this.btnGenerarPDF.TabIndex = 11;
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
+            // btnAgendarConsulta
+            // 
+            this.btnAgendarConsulta.BackgroundImage = global::Terapp.UI.Properties.Resources.agregar_cita;
+            this.btnAgendarConsulta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgendarConsulta.Location = new System.Drawing.Point(372, 613);
+            this.btnAgendarConsulta.Name = "btnAgendarConsulta";
+            this.btnAgendarConsulta.Size = new System.Drawing.Size(128, 85);
+            this.btnAgendarConsulta.TabIndex = 9;
+            this.btnAgendarConsulta.UseVisualStyleBackColor = true;
+            this.btnAgendarConsulta.Click += new System.EventHandler(this.btnAgendarConsulta_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(21, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(389, 37);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "NUMERO DE EXPEDIENTE";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.Location = new System.Drawing.Point(1002, 84);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(114, 66);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblExpediente
+            // 
+            this.lblExpediente.AutoSize = true;
+            this.lblExpediente.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpediente.Location = new System.Drawing.Point(467, 16);
+            this.lblExpediente.Name = "lblExpediente";
+            this.lblExpediente.Size = new System.Drawing.Size(0, 37);
+            this.lblExpediente.TabIndex = 21;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
+            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardar.Location = new System.Drawing.Point(36, 610);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(128, 85);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(30, 97);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 34);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "NOMBRE";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(349, 377);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(800, 38);
+            this.txtTelefono.TabIndex = 6;
+            // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(349, 167);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(800, 38);
+            this.dtpFechaNacimiento.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(30, 377);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 34);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "TELEFONO";
+            // 
+            // txtOcupacion
+            // 
+            this.txtOcupacion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOcupacion.Location = new System.Drawing.Point(349, 307);
+            this.txtOcupacion.Name = "txtOcupacion";
+            this.txtOcupacion.Size = new System.Drawing.Size(800, 38);
+            this.txtOcupacion.TabIndex = 5;
+            // 
+            // txtNombrePaciente
+            // 
+            this.txtNombrePaciente.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombrePaciente.Location = new System.Drawing.Point(349, 97);
+            this.txtNombrePaciente.Name = "txtNombrePaciente";
+            this.txtNombrePaciente.Size = new System.Drawing.Size(543, 38);
+            this.txtNombrePaciente.TabIndex = 1;
+            // 
+            // txtEdad
+            // 
+            this.txtEdad.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEdad.Location = new System.Drawing.Point(349, 238);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(800, 38);
+            this.txtEdad.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(30, 310);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 34);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "OCUPACION";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 167);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(205, 34);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "FECHA DE NAC.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(30, 241);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 34);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "EDAD";
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabDatosPaciente);
+            this.tabControl.Controls.Add(this.tabMotivoConsulta);
+            this.tabControl.Controls.Add(this.tabTratamiento);
+            this.tabControl.Controls.Add(this.tabAdjunto);
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(0, 0);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1272, 751);
+            this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // frmConsulta
             // 
@@ -771,10 +772,6 @@
             this.tabMotivoConsulta.ResumeLayout(false);
             this.tabMotivoConsulta.PerformLayout();
             this.flwEscaladolor.ResumeLayout(false);
-            this.tabDatosPaciente.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.escala1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala3)).EndInit();
@@ -785,6 +782,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.escala8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.escala10)).EndInit();
+            this.tabDatosPaciente.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

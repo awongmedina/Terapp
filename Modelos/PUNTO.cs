@@ -14,7 +14,6 @@ namespace Terapp.UI
         {
             TRATAMIENTO,
             MOTIVO_CONSULTA
-
         }
         public int ID { get; set; }
 

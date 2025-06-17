@@ -24,7 +24,7 @@ namespace Terapp.UI
             lblDiaDelMes.Text = numDias + "";
         }
 
-        public void CantidadPacientes(int pacientes)
+        public void CantidadPacientesPorDia(int pacientes)
         {
             lblNumPacientes.Text = pacientes.ToString();
         }

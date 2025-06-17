@@ -36,13 +36,22 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabTratamientos = new System.Windows.Forms.TabControl();
             this.tabAfecciones = new System.Windows.Forms.TabPage();
+            this.btnBuscarPadecimiento = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.chkEstatusAfeccion = new System.Windows.Forms.CheckBox();
+            this.btnGuardarAfeccion = new System.Windows.Forms.Button();
             this.txtDescripcionAfeccion = new System.Windows.Forms.TextBox();
             this.txtNombreAfeccion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.canvasEjercicio = new System.Windows.Forms.Panel();
+            this.btnAgergarImagen = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtImagenEjercicio = new System.Windows.Forms.TextBox();
+            this.cboTipo = new System.Windows.Forms.ComboBox();
+            this.btnBuscarTratamiento = new System.Windows.Forms.Button();
+            this.btnGuardarTipoTratamiento = new System.Windows.Forms.Button();
             this.chkEstatusTratamiento = new System.Windows.Forms.CheckBox();
             this.txtDescripcionTratamiento = new System.Windows.Forms.TextBox();
             this.txtNombreTratamiento = new System.Windows.Forms.TextBox();
@@ -53,17 +62,8 @@
             this.lblErrorPacientes = new System.Windows.Forms.Label();
             this.txtPacientesSimultaneos = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cboTipo = new System.Windows.Forms.ComboBox();
-            this.txtImagenEjercicio = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnAgergarImagen = new System.Windows.Forms.Button();
-            this.btnBuscarPadecimiento = new System.Windows.Forms.Button();
-            this.btnGuardarAfeccion = new System.Windows.Forms.Button();
-            this.canvasEjercicio = new System.Windows.Forms.Panel();
-            this.btnBuscarTratamiento = new System.Windows.Forms.Button();
-            this.btnGuardarTipoTratamiento = new System.Windows.Forms.Button();
             this.btnGuardarCalendario = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.tabTratamientos.SuspendLayout();
@@ -133,6 +133,17 @@
             this.tabAfecciones.TabIndex = 0;
             this.tabAfecciones.Text = "PADECIMIENTO";
             // 
+            // btnBuscarPadecimiento
+            // 
+            this.btnBuscarPadecimiento.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
+            this.btnBuscarPadecimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarPadecimiento.Location = new System.Drawing.Point(1064, 179);
+            this.btnBuscarPadecimiento.Name = "btnBuscarPadecimiento";
+            this.btnBuscarPadecimiento.Size = new System.Drawing.Size(57, 46);
+            this.btnBuscarPadecimiento.TabIndex = 8;
+            this.btnBuscarPadecimiento.UseVisualStyleBackColor = true;
+            this.btnBuscarPadecimiento.Click += new System.EventHandler(this.btnBuscarPadecimiento_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -145,17 +156,29 @@
             // 
             // chkEstatusAfeccion
             // 
+            this.chkEstatusAfeccion.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkEstatusAfeccion.AutoSize = true;
             this.chkEstatusAfeccion.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.chkEstatusAfeccion.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.chkEstatusAfeccion.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstatusAfeccion.Location = new System.Drawing.Point(1064, 92);
             this.chkEstatusAfeccion.Name = "chkEstatusAfeccion";
-            this.chkEstatusAfeccion.Size = new System.Drawing.Size(150, 39);
+            this.chkEstatusAfeccion.Size = new System.Drawing.Size(135, 44);
             this.chkEstatusAfeccion.TabIndex = 5;
             this.chkEstatusAfeccion.Text = "ACTIVO ?";
             this.chkEstatusAfeccion.UseVisualStyleBackColor = true;
             this.chkEstatusAfeccion.CheckedChanged += new System.EventHandler(this.chkEstatusAfeccion_CheckedChanged);
+            // 
+            // btnGuardarAfeccion
+            // 
+            this.btnGuardarAfeccion.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
+            this.btnGuardarAfeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardarAfeccion.Location = new System.Drawing.Point(706, 512);
+            this.btnGuardarAfeccion.Name = "btnGuardarAfeccion";
+            this.btnGuardarAfeccion.Size = new System.Drawing.Size(107, 67);
+            this.btnGuardarAfeccion.TabIndex = 4;
+            this.btnGuardarAfeccion.UseVisualStyleBackColor = true;
+            this.btnGuardarAfeccion.Click += new System.EventHandler(this.btnGuardarAfeccion_Click);
             // 
             // txtDescripcionAfeccion
             // 
@@ -213,14 +236,87 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TIPO DE TRATAMIENTO";
             // 
+            // canvasEjercicio
+            // 
+            this.canvasEjercicio.BackgroundImage = global::Terapp.UI.Properties.Resources.SIN_IMAGEN;
+            this.canvasEjercicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.canvasEjercicio.Location = new System.Drawing.Point(784, 177);
+            this.canvasEjercicio.Name = "canvasEjercicio";
+            this.canvasEjercicio.Size = new System.Drawing.Size(460, 394);
+            this.canvasEjercicio.TabIndex = 13;
+            // 
+            // btnAgergarImagen
+            // 
+            this.btnAgergarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAgergarImagen.Location = new System.Drawing.Point(25, 410);
+            this.btnAgergarImagen.Name = "btnAgergarImagen";
+            this.btnAgergarImagen.Size = new System.Drawing.Size(183, 35);
+            this.btnAgergarImagen.TabIndex = 12;
+            this.btnAgergarImagen.Text = "AGREGAR IMAGEN";
+            this.btnAgergarImagen.UseVisualStyleBackColor = true;
+            this.btnAgergarImagen.Click += new System.EventHandler(this.btnAgergarImagen_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 117);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(229, 21);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "EJERCICIO O TRATAMIENTO?";
+            // 
+            // txtImagenEjercicio
+            // 
+            this.txtImagenEjercicio.Enabled = false;
+            this.txtImagenEjercicio.Location = new System.Drawing.Point(256, 414);
+            this.txtImagenEjercicio.Name = "txtImagenEjercicio";
+            this.txtImagenEjercicio.Size = new System.Drawing.Size(409, 26);
+            this.txtImagenEjercicio.TabIndex = 10;
+            this.txtImagenEjercicio.DoubleClick += new System.EventHandler(this.btnAgergarImagen_Click);
+            // 
+            // cboTipo
+            // 
+            this.cboTipo.FormattingEnabled = true;
+            this.cboTipo.Items.AddRange(new object[] {
+            "TRATAMIENTO",
+            "EJERCICIO"});
+            this.cboTipo.Location = new System.Drawing.Point(256, 117);
+            this.cboTipo.Name = "cboTipo";
+            this.cboTipo.Size = new System.Drawing.Size(340, 29);
+            this.cboTipo.TabIndex = 8;
+            // 
+            // btnBuscarTratamiento
+            // 
+            this.btnBuscarTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
+            this.btnBuscarTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscarTratamiento.Location = new System.Drawing.Point(616, 192);
+            this.btnBuscarTratamiento.Name = "btnBuscarTratamiento";
+            this.btnBuscarTratamiento.Size = new System.Drawing.Size(57, 46);
+            this.btnBuscarTratamiento.TabIndex = 7;
+            this.btnBuscarTratamiento.UseVisualStyleBackColor = true;
+            this.btnBuscarTratamiento.Click += new System.EventHandler(this.btnBuscarTratamiento_Click);
+            // 
+            // btnGuardarTipoTratamiento
+            // 
+            this.btnGuardarTipoTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
+            this.btnGuardarTipoTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnGuardarTipoTratamiento.Location = new System.Drawing.Point(388, 483);
+            this.btnGuardarTipoTratamiento.Name = "btnGuardarTipoTratamiento";
+            this.btnGuardarTipoTratamiento.Size = new System.Drawing.Size(107, 67);
+            this.btnGuardarTipoTratamiento.TabIndex = 6;
+            this.btnGuardarTipoTratamiento.UseVisualStyleBackColor = true;
+            this.btnGuardarTipoTratamiento.Click += new System.EventHandler(this.btnGuardarTipoTratamiento_Click);
+            // 
             // chkEstatusTratamiento
             // 
+            this.chkEstatusTratamiento.Appearance = System.Windows.Forms.Appearance.Button;
             this.chkEstatusTratamiento.AutoSize = true;
             this.chkEstatusTratamiento.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.chkEstatusTratamiento.Font = new System.Drawing.Font("Franklin Gothic Book", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstatusTratamiento.Location = new System.Drawing.Point(784, 117);
             this.chkEstatusTratamiento.Name = "chkEstatusTratamiento";
-            this.chkEstatusTratamiento.Size = new System.Drawing.Size(150, 39);
+            this.chkEstatusTratamiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.chkEstatusTratamiento.Size = new System.Drawing.Size(135, 44);
             this.chkEstatusTratamiento.TabIndex = 5;
             this.chkEstatusTratamiento.Text = "ACTIVO ?";
             this.chkEstatusTratamiento.UseVisualStyleBackColor = true;
@@ -312,109 +408,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "CONFIGURAR NUMERO DE PACIENTES A LA MISMA HORA";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(468, 110);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(498, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "MANTENIMIENTO DE CATALOGOS";
-            // 
-            // cboTipo
-            // 
-            this.cboTipo.FormattingEnabled = true;
-            this.cboTipo.Items.AddRange(new object[] {
-            "TRATAMIENTO",
-            "EJERCICIO"});
-            this.cboTipo.Location = new System.Drawing.Point(256, 117);
-            this.cboTipo.Name = "cboTipo";
-            this.cboTipo.Size = new System.Drawing.Size(340, 29);
-            this.cboTipo.TabIndex = 8;
-            // 
-            // txtImagenEjercicio
-            // 
-            this.txtImagenEjercicio.Enabled = false;
-            this.txtImagenEjercicio.Location = new System.Drawing.Point(256, 414);
-            this.txtImagenEjercicio.Name = "txtImagenEjercicio";
-            this.txtImagenEjercicio.Size = new System.Drawing.Size(409, 26);
-            this.txtImagenEjercicio.TabIndex = 10;
-            this.txtImagenEjercicio.DoubleClick += new System.EventHandler(this.btnAgergarImagen_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 117);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(229, 21);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "EJERCICIO O TRATAMIENTO?";
-            // 
-            // btnAgergarImagen
-            // 
-            this.btnAgergarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAgergarImagen.Location = new System.Drawing.Point(25, 410);
-            this.btnAgergarImagen.Name = "btnAgergarImagen";
-            this.btnAgergarImagen.Size = new System.Drawing.Size(183, 35);
-            this.btnAgergarImagen.TabIndex = 12;
-            this.btnAgergarImagen.Text = "AGREGAR IMAGEN";
-            this.btnAgergarImagen.UseVisualStyleBackColor = true;
-            this.btnAgergarImagen.Click += new System.EventHandler(this.btnAgergarImagen_Click);
-            // 
-            // btnBuscarPadecimiento
-            // 
-            this.btnBuscarPadecimiento.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
-            this.btnBuscarPadecimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscarPadecimiento.Location = new System.Drawing.Point(1064, 179);
-            this.btnBuscarPadecimiento.Name = "btnBuscarPadecimiento";
-            this.btnBuscarPadecimiento.Size = new System.Drawing.Size(57, 46);
-            this.btnBuscarPadecimiento.TabIndex = 8;
-            this.btnBuscarPadecimiento.UseVisualStyleBackColor = true;
-            this.btnBuscarPadecimiento.Click += new System.EventHandler(this.btnBuscarPadecimiento_Click);
-            // 
-            // btnGuardarAfeccion
-            // 
-            this.btnGuardarAfeccion.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
-            this.btnGuardarAfeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardarAfeccion.Location = new System.Drawing.Point(706, 512);
-            this.btnGuardarAfeccion.Name = "btnGuardarAfeccion";
-            this.btnGuardarAfeccion.Size = new System.Drawing.Size(107, 67);
-            this.btnGuardarAfeccion.TabIndex = 4;
-            this.btnGuardarAfeccion.UseVisualStyleBackColor = true;
-            this.btnGuardarAfeccion.Click += new System.EventHandler(this.btnGuardarAfeccion_Click);
-            // 
-            // canvasEjercicio
-            // 
-            this.canvasEjercicio.BackgroundImage = global::Terapp.UI.Properties.Resources.SIN_IMAGEN;
-            this.canvasEjercicio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.canvasEjercicio.Location = new System.Drawing.Point(784, 177);
-            this.canvasEjercicio.Name = "canvasEjercicio";
-            this.canvasEjercicio.Size = new System.Drawing.Size(460, 394);
-            this.canvasEjercicio.TabIndex = 13;
-            // 
-            // btnBuscarTratamiento
-            // 
-            this.btnBuscarTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.buscar;
-            this.btnBuscarTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBuscarTratamiento.Location = new System.Drawing.Point(616, 192);
-            this.btnBuscarTratamiento.Name = "btnBuscarTratamiento";
-            this.btnBuscarTratamiento.Size = new System.Drawing.Size(57, 46);
-            this.btnBuscarTratamiento.TabIndex = 7;
-            this.btnBuscarTratamiento.UseVisualStyleBackColor = true;
-            this.btnBuscarTratamiento.Click += new System.EventHandler(this.btnBuscarTratamiento_Click);
-            // 
-            // btnGuardarTipoTratamiento
-            // 
-            this.btnGuardarTipoTratamiento.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
-            this.btnGuardarTipoTratamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnGuardarTipoTratamiento.Location = new System.Drawing.Point(388, 483);
-            this.btnGuardarTipoTratamiento.Name = "btnGuardarTipoTratamiento";
-            this.btnGuardarTipoTratamiento.Size = new System.Drawing.Size(107, 67);
-            this.btnGuardarTipoTratamiento.TabIndex = 6;
-            this.btnGuardarTipoTratamiento.UseVisualStyleBackColor = true;
-            this.btnGuardarTipoTratamiento.Click += new System.EventHandler(this.btnGuardarTipoTratamiento_Click);
-            // 
             // btnGuardarCalendario
             // 
             this.btnGuardarCalendario.BackgroundImage = global::Terapp.UI.Properties.Resources.guardar;
@@ -425,6 +418,16 @@
             this.btnGuardarCalendario.TabIndex = 7;
             this.btnGuardarCalendario.UseVisualStyleBackColor = true;
             this.btnGuardarCalendario.Click += new System.EventHandler(this.btnGuardarCalendario_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Book", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(468, 110);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(498, 37);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "MANTENIMIENTO DE CATALOGOS";
             // 
             // pictureBox2
             // 

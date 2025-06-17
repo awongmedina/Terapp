@@ -18,6 +18,7 @@ namespace Terapp.UI
         public PACIENTE _paciente;
         public CONSULTA _consulta;
         public IQueryable<CONSULTA> consultas;
+        public bool agenda = false;
         public frmAgenda()
         {
             InitializeComponent();
@@ -137,6 +138,7 @@ namespace Terapp.UI
         {
             frmConsulta consulta = new frmConsulta();
             consulta.Show();
+            this.Close();
             
         }
 
@@ -144,6 +146,7 @@ namespace Terapp.UI
         {
             frmCalendarioMensual frmCalendarioMensual = new frmCalendarioMensual();
             frmCalendarioMensual.Show();
+            this.Close();
             
         }
 
@@ -162,16 +165,20 @@ namespace Terapp.UI
 
         private void ObtenerCitasDelDia()
         {
-            using (var unitOfWork = new UnitOfWork(new TerapiModel()))
+            if (!agenda) 
             {
-                var dbService = new TerapiService(unitOfWork);
+                using (var unitOfWork = new UnitOfWork(new TerapiModel()))
+                {
+                    var dbService = new TerapiService(unitOfWork);
 
-                var _consultas = dbService.ObtenerConsultasPorDia(DateTime.Today);
-                if(_consultas == null)
-                    return;
+                    var _consultas = dbService.ObtenerConsultasPorDia(DateTime.Today);
+                    if (_consultas == null)
+                        return;
 
-                consultas = _consultas.AsQueryable();
+                    consultas = _consultas.AsQueryable();
+                }
             }
+           
 
             AgregarControles(consultas);
         }
